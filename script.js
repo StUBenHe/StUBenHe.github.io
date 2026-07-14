@@ -150,6 +150,77 @@
       'footer-text': '© 2026 Ben He. All rights reserved.',
       'back-top': 'Back to top',
     },
+    zh: {
+      'meta-desc': 'Ben He — AI 工程师 & 机器人工程师。KIT 电气工程专业学生，专注人工智能、机器人和智能自动化。',
+      'nav-home': '返回首页',
+      'nav-main': '主导航',
+      'nav-about': '关于我',
+      'nav-edu': '教育背景',
+      'nav-exp': '项目经验',
+      'nav-proj': '个人项目',
+      'nav-skills': '技能',
+      'nav-contact': '联系方式',
+      'lang-switch': 'Switch to German',
+      'theme-switch': '切换主题',
+      'menu-open': '打开菜单',
+      'hero-greeting': '你好，我是',
+      'hero-subtitle': '电气工程与信息技术 (B.Sc.) · 人工智能 · 机器人 · 智能自动化',
+      'hero-cta': '联系我',
+      'scroll': '向下滚动',
+      'about-title': '关于我',
+      'about-text': '卡尔斯鲁厄理工学院 (KIT) 电气工程专业学生，专注于<strong>人工智能、机器人和智能自动化</strong>。致力于成为 <strong>AI 工程师</strong>或<strong>机器人工程师</strong>——具备 LLM 应用开发、计算机视觉、ROS&nbsp;2 和数字孪生系统方面的经验。',
+      'about-photo': '个人介绍',
+      'portrait-alt': 'Ben He 肖像',
+      'edu-title': '教育背景',
+      'edu-kit-degree': 'B.Sc. 电气工程与信息技术',
+      'edu-kit-note': '预计毕业时间：2026年9月',
+      'edu-yz-degree': '信息与计算科学',
+      'edu-yz-note': '转学至 KIT',
+      'exp-title': '大学项目经验',
+      'exp-thesis-title': '本科毕业论文：面向机器人的数字孪生基础设施设计',
+      'exp-thesis-1': '开发 Python 工具链（子模型生成器），自动从 URDF/YAML 数据中提取六个语义化 AAS 子模型：<em>结构、运动学、动力学、控制、安全、可视化</em>。',
+      'exp-thesis-2': '多机器人生成器，从 AAS 数据全自动实例化复杂的 ROS 2 仿真场景——无需手动配置。',
+      'exp-thesis-3': '在异构机器人系统（Universal Robots 和 igus ReBeL）上验证跨平台互操作性：URDF → AAS → 仿真，端到端闭环。',
+      'exp-eti-title': '学生助研 – 电力电子与硬件设计',
+      'exp-eti-1': '在 MATLAB/Simulink 中设计并仿真 Buck 变换器；在可变负载条件下实现输出电压纹波 <5%。',
+      'exp-eti-2': '在 Altium Designer 中完成完整的 PCB 原理图设计、布局和电气规则检查。',
+      'exp-itiv-title': '学生助研 – 自动驾驶（原型开发）',
+      'exp-itiv-tag': '传感器融合',
+      'exp-itiv-1': '为 1:10 比例自动驾驶原型车开发嵌入式 C++ 软件，在双核 ARM MCU 上实现实时障碍物检测与避障。',
+      'proj-title': '个人项目',
+      'proj-agent-title': 'AI 驱动的客户投诉自动化处理系统',
+      'proj-agent-meta': '个人 AI 项目 · 2025',
+      'proj-agent-desc': '基于 LLM 的端到端客户投诉自动化处理系统——从工单分析、跨内部文档自动知识检索，到最终邮件生成。集成 RAG（检索增强生成）匹配产品规格。平均处理时间减少约 80%。',
+      'proj-fitlog-title': '全栈健康 App "Fitlog"',
+      'proj-fitlog-meta': '个人 AI 项目 · 2025年1月至今',
+      'proj-fitlog-desc': '全栈系统：Android 客户端 (MVVM) + 服务端 AI 管道，通过图像识别自动估算食物热量。REST API + 本地/远程数据库同步 (Room + Remote DB)，支持离线架构。',
+      'proj-dream-title': '心理卡牌游戏 "Dream Cards"',
+      'proj-dream-meta': '个人 AI 项目 · 2026年6月至今',
+      'proj-dream-desc': '潜意识分析卡牌游戏，灵感来源于 OH/OK 卡牌，使用联想图像进行自我反思。服务端实现抽牌、会话管理和解读引导逻辑，与 Fitlog 共用后端。',
+      'skills-title': '技能',
+      'skills-ai': '🤖 AI & LLM',
+      'skills-prog': '💻 编程语言',
+      'skills-robo': '🦾 机器人',
+      'skills-mobile': '📱 移动端 & Web',
+      'skills-tools': '🛠 工具 & DevOps',
+      'skills-lang': '🌐 语言能力',
+      'lang-zh': '中文（母语）',
+      'lang-de': '德语 (C1 / DSH-3)',
+      'lang-en': '英语 (B2 / 专业熟练)',
+      'awards-title': '获奖经历',
+      'award-1-title': 'Top 10 — MATLAB 编程竞赛',
+      'award-1-meta': '长江大学，2019',
+      'award-2-title': '二等奖 — 数学定理竞赛',
+      'award-2-meta': '长江大学，2018',
+      'contact-title': '联系方式',
+      'contact-intro': '我始终对新机会和有趣的项目持开放态度。欢迎联系我！',
+      'contact-email': '邮箱',
+      'contact-phone': '电话',
+      'contact-loc': '所在地',
+      'contact-loc-val': '德国 卡尔斯鲁厄',
+      'footer-text': '© 2026 Ben He. 保留所有权利。',
+      'back-top': '回到顶部',
+    },
   };
 
   // Typewriter titles per language
@@ -166,7 +237,17 @@
       'Intelligent Automation',
       'Embedded Systems & Full-Stack',
     ],
+    zh: [
+      'AI 与机器人工程师',
+      '数字孪生 & ROS 2',
+      '智能自动化系统',
+      '嵌入式 & 全栈开发',
+    ],
   };
+
+  // Language cycle order
+  const LANG_ORDER = ['de', 'en', 'zh'];
+  const LANG_LABEL = { de: 'DE', en: 'EN', zh: '中' };
 
   // ─── DOM References ───────────────────────────────────────
   const DOM = {};
@@ -192,19 +273,27 @@
 
   function getLang() {
     const saved = localStorage.getItem('lang');
-    if (saved === 'en' || saved === 'de') return saved;
-    const browserLang = navigator.language || '';
-    return browserLang.startsWith('de') ? 'de' : 'de'; // default DE
+    if (saved === 'de' || saved === 'en' || saved === 'zh') return saved;
+    const browserLang = (navigator.language || '').split('-')[0];
+    if (browserLang === 'de') return 'de';
+    if (browserLang === 'zh') return 'zh';
+    return 'de'; // default DE
+  }
+
+  function nextLang(lang) {
+    const idx = LANG_ORDER.indexOf(lang);
+    return LANG_ORDER[(idx + 1) % LANG_ORDER.length];
   }
 
   function setLang(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
 
-    // Update lang toggle button
+    // Update lang toggle button — shows next language
+    const next = nextLang(lang);
     if (DOM.langToggle) {
-      DOM.langToggle.querySelector('span').textContent = lang === 'de' ? 'EN' : 'DE';
+      DOM.langToggle.querySelector('span').textContent = LANG_LABEL[next];
       DOM.langToggle.setAttribute('aria-label', T[lang]['lang-switch']);
     }
 
@@ -251,7 +340,7 @@
   }
 
   function toggleLang() {
-    setLang(currentLang === 'de' ? 'en' : 'de');
+    setLang(nextLang(currentLang));
   }
 
   // ─── Theme Toggle ────────────────────────────────────────
