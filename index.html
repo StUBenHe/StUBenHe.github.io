@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ben He — Elektrotechnik & Informationstechnik Student am KIT. Portfolio mit Projekten in Robotik, KI und Embedded Systems.">
+  <title>Ben He | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Zur Startseite">BH</a>
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Hauptnavigation">
+        <a href="#about" data-section="about">Über mich</a>
+        <a href="#education" data-section="education">Ausbildung</a>
+        <a href="#experience" data-section="experience">Erfahrung</a>
+        <a href="#projects" data-section="projects">Projekte</a>
+        <a href="#skills" data-section="skills">Kenntnisse</a>
+        <a href="#contact" data-section="contact">Kontakt</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Design umschalten" title="Hell/Dunkel Modus">
+          <span class="theme-icon-light">☀️</span>
+          <span class="theme-icon-dark">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-greeting">Hallo, ich bin</p>
+        <h1 class="hero-name">Ben He</h1>
+        <p class="hero-title" id="heroTitle"></p>
+        <p class="hero-subtitle">Elektrotechnik &amp; Informationstechnik · KI · Robotik · Embedded Systems</p>
+        <div class="hero-cta">
+          <a href="https://github.com/StUBenHe" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="#contact" class="btn btn-outline">Kontakt</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-indicator"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">01</span> Über mich</h2>
+        <div class="about-layout">
+          <div class="about-content">
+            <p>
+              Ich bin ein Elektrotechnik- und Informationstechnikstudent am Karlsruher Institut für Technologie (KIT),
+              derzeit im Bachelorstudium mit Schwerpunkt auf Robotik, industrieller Software, KI-gestützter Automatisierung
+              und digitalen Zwillingstechnologien.
+            </p>
+            <p>
+              Meine Erfahrung reicht von der Entwicklung von Hardware- und Leistungselektronik-Prototypen über eingebettete Systeme
+              bis hin zu Full-Stack-Anwendungen und AI-Agenten für reale Automatisierungsprozesse. Besonders spannend finde ich die
+              Verbindung von theoretischem Verständnis und praxistauglicher Umsetzung in komplexen technischen Systemen.
+            </p>
+            <p>
+              Aktuell arbeite ich an meiner Bachelorarbeit im Bereich Digital-Twin-Infrastruktur für Robotik und entwickle eine
+              Python-Toolchain zur automatischen Generierung von AAS-Teilmodellen aus URDF-Daten. Daneben habe ich Projekte im
+              Bereich Android-Apps, Computer Vision und LLM-gestützter Workflow-Automation umgesetzt.
+            </p>
+            <div class="about-facts">
+              <div class="about-fact">
+                <strong>Studium</strong>
+                <span>B.Sc. Elektrotechnik &amp; Informationstechnik, KIT</span>
+              </div>
+              <div class="about-fact">
+                <strong>Schwerpunkt</strong>
+                <span>Robotik · Digital Twin · AI Automation</span>
+              </div>
+              <div class="about-fact">
+                <strong>Stärken</strong>
+                <span>Systemdenken · Selbstständigkeit · schnelle Umsetzung</span>
+              </div>
+              <div class="about-fact">
+                <strong>Aktuell</strong>
+                <span>Bachelorarbeit und wissenschaftliche Projekte</span>
+              </div>
+            </div>
+          </div>
+          <aside class="about-photo-card" aria-label="Persönliche Vorstellung">
+            <div class="photo-frame">
+              <img src="6572d07c20fc7606f30b6678b430be40.jpg" alt="Portrait von Ben He">
+            </div>
+            <div class="about-badges">
+              <span class="tag tag-skill">KIT · B.Sc.</span>
+              <span class="tag tag-skill">Python / ROS 2</span>
+              <span class="tag tag-skill">AI Agent</span>
+              <span class="tag tag-skill">Digital Twin</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section section-alt" id="education">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">02</span> Ausbildung</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3>Karlsruher Institut für Technologie (KIT)</h3>
+                <span class="timeline-date">10/2021 – 09/2026</span>
+              </div>
+              <p class="timeline-subtitle">B.Sc. Elektrotechnik und Informationstechnik</p>
+              <p class="timeline-location">📍 Karlsruhe</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3>Yangtze Universität</h3>
+                <span class="timeline-date">09/2017 – 09/2020</span>
+              </div>
+              <p class="timeline-subtitle">Informations- und Informatikwissenschaften</p>
+              <p class="timeline-location">📍 Jingzhou, China</p>
+              <p class="timeline-note">Wechsel ans KIT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">03</span> Berufserfahrung</h2>
+        <div class="exp-grid">
+          <article class="exp-card">
+            <div class="exp-card-header">
+              <h3>Werkstudent – Leistungselektronik &amp; Hardware-Design</h3>
+              <span class="exp-date">05/2024 – 09/2024</span>
+            </div>
+            <p class="exp-company">Institut für Technische Elektronik (ETI), KIT</p>
+            <div class="exp-tags">
+              <span class="tag">MATLAB/Simulink</span>
+              <span class="tag">Altium Designer</span>
+            </div>
+            <ul class="exp-details">
+              <li>Entwurf und Simulation eines Buck-Wandlers in MATLAB/Simulink; Erzielung einer Ausgangsspannungswelligkeit &lt;5% unter variablen Lastbedingungen.</li>
+              <li>Vollständige PCB-Schaltplanerstellung, Layout und elektrische Regelprüfung in Altium Designer.</li>
+            </ul>
+          </article>
+          <article class="exp-card">
+            <div class="exp-card-header">
+              <h3>Werkstudent – Autonomes Fahren (Prototyping)</h3>
+              <span class="exp-date">05/2023 – 07/2023</span>
+            </div>
+            <p class="exp-company">Institut für Technik der Informationsverarbeitung (ITIV), KIT</p>
+            <div class="exp-tags">
+              <span class="tag">C++</span>
+              <span class="tag">Sensorfusion</span>
+            </div>
+            <ul class="exp-details">
+              <li>Entwicklung eingebetteter C++-Software für einen autonomen Fahrzeugprototyp (Maßstab 1:10) mit Echtzeit-Hinderniserkennung und -vermeidung auf einem Dual-Core ARM MCU.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">04</span> Projekte</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-icon">🤖</div>
+            <h3>Bachelorarbeit: Digital-Twin-Infrastruktur für Robotik</h3>
+            <p class="project-meta">Institut für Regelungs- und Steuerungssysteme (IRS), KIT · 06/2025 – 12/2025</p>
+            <p class="project-desc">Entwicklung einer Python-Toolchain zur automatischen Extraktion von URDF-/YAML-Daten in sechs semantische AAS-Teilmodelle. Multi-Robot-Generator für ROS-2-Simulationen aus AAS-Daten — ohne manuelle Konfiguration. Validierung auf heterogenen Robotersystemen (Universal Robots & igus ReBeL).</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">ROS 2</span>
+              <span class="tag">AAS (v3.0)</span>
+              <span class="tag">XML</span>
+            </div>
+            <a href="https://github.com/StUBenHe/URCell" target="_blank" rel="noopener" class="project-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              github.com/StUBenHe/URCell
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">🧠</div>
+            <h3>KI-gestützter Automatisierungsagent für Kundenbeschwerden</h3>
+            <p class="project-meta">Technische Interview-Demo · 2025</p>
+            <p class="project-desc">LLM-basierter Agent zur End-to-End-Automatisierung von Kundenbeschwerden — von Ticketanalyse über Informationsrecherche bis zur E-Mail-Generierung. Integration von RAG zum Abgleich mit Produktspezifikationen. Reduzierung der durchschnittlichen Bearbeitungszeit um ∼80%.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">LLM</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Prompt Engineering</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">📱</div>
+            <h3>Full-Stack Gesundheits-App „Fitlog"</h3>
+            <p class="project-meta">Persönliches Projekt (KI + Mobile) · 01/2025 – heute</p>
+            <p class="project-desc">Full-Stack-System mit Android-Client (MVVM) und serverseitiger KI-Pipeline zur automatisierten Kalorienschätzung durch Bilderkennung. REST API + lokale/entfernte Datenbanksynchronisation (Room + Remote DB) mit offlinefähiger Architektur.</p>
+            <div class="project-tags">
+              <span class="tag">Kotlin/Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Android Studio</span>
+            </div>
+            <a href="https://github.com/StUBenHe/Fitlog" target="_blank" rel="noopener" class="project-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              github.com/StUBenHe/Fitlog
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">🃏</div>
+            <h3>Psychologisches Kartenspiel „Dream Cards"</h3>
+            <p class="project-meta">Persönliches Projekt (Spieldesign + Psychologie) · 2025</p>
+            <p class="project-desc">Kartenspiel zur Unterbewusstseinsanalyse, inspiriert von OH/OK-Karten, das assoziative Bilder zur Selbstreflexion nutzt. Serverseitige Logik für Kartenziehen, Sitzungsverwaltung und interpretative Anleitung auf demselben Backend wie Fitlog.</p>
+            <div class="project-tags">
+              <span class="tag">Kotlin/Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">Android Studio</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">05</span> Technische Kenntnisse</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>🤖 KI &amp; LLM</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">LLM-Agenten</span>
+              <span class="tag tag-skill">RAG</span>
+              <span class="tag tag-skill">Prompt Engineering</span>
+              <span class="tag tag-skill">Computer Vision</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>💻 Programmierung</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Python</span>
+              <span class="tag tag-skill">NumPy</span>
+              <span class="tag tag-skill">asyncio</span>
+              <span class="tag tag-skill">rclpy</span>
+              <span class="tag tag-skill">Kotlin/Java</span>
+              <span class="tag tag-skill">C++</span>
+              <span class="tag tag-skill">MATLAB</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>🦾 Robotik</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">ROS2</span>
+              <span class="tag tag-skill">URDF/Xacro</span>
+              <span class="tag tag-skill">AAS</span>
+              <span class="tag tag-skill">Gazebo</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>📱 Mobile &amp; Web</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Android SDK</span>
+              <span class="tag tag-skill">MVVM</span>
+              <span class="tag tag-skill">Room</span>
+              <span class="tag tag-skill">REST API Design</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>🛠 Tools &amp; DevOps</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Git</span>
+              <span class="tag tag-skill">Docker</span>
+              <span class="tag tag-skill">Altium Designer</span>
+              <span class="tag tag-skill">Simulink</span>
+              <span class="tag tag-skill">Linux (Ubuntu)</span>
+              <span class="tag tag-skill">LaTeX</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>🌐 Sprachen</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Chinesisch (Muttersprache)</span>
+              <span class="tag tag-skill">Deutsch (C1 / DSH-3)</span>
+              <span class="tag tag-skill">Englisch (B2)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section section-alt" id="awards">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">06</span> Auszeichnungen</h2>
+        <div class="awards-list">
+          <div class="award-item">
+            <div class="award-icon">🏆</div>
+            <div class="award-content">
+              <h3>Top 10 — MATLAB-Programmierwettbewerb</h3>
+              <p>Yangtze Universität, 2019</p>
+            </div>
+          </div>
+          <div class="award-item">
+            <div class="award-icon">🥈</div>
+            <div class="award-content">
+              <h3>2. Preis — Wettbewerb Mathematische Theoreme</h3>
+              <p>Yangtze Universität, 2018</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">07</span> Kontakt</h2>
+        <p class="contact-intro">Ich bin immer offen für neue Möglichkeiten und spannende Projekte. Sprechen Sie mich gerne an!</p>
+        <div class="contact-grid">
+          <a href="mailto:ben.he1999@outlook.com" class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>E-Mail</h3>
+            <p>ben.he1999@outlook.com</p>
+          </a>
+          <a href="tel:+4915568616003" class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Telefon</h3>
+            <p>+49 155 68616003</p>
+          </a>
+          <a href="https://github.com/StUBenHe" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <h3>GitHub</h3>
+            <p>github.com/StUBenHe</p>
+          </a>
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Standort</h3>
+            <p>Karlsruhe, Deutschland</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Ben He. Alle Rechte vorbehalten.</p>
+      <a href="#hero" class="back-to-top" aria-label="Zurück nach oben">↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Sensitive personal documents
+*.pdf
+steurenummer.jpeg
+foto.jpg
+中文简历.txt
+lebenslauf_mit_foto.tex
+.agents/
