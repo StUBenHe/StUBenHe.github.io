@@ -1,342 +1,393 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Share the Universe</title><meta name="author" content="Ben He"><meta name="copyright" content="Ben He"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta property="og:type" content="website">
-<meta property="og:title" content="Share the Universe">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Share the Universe">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/avatar.png">
-<meta property="article:author" content="Ben He">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/avatar.png"><link rel="shortcut icon" href="/img/logo1-yellow.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: undefined,
-  copy: {
-    success: 'Copy Successful',
-    error: 'Copy Error',
-    noSupport: 'Browser Not Supported'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: 'days',
-  dateSuffix: {
-    just: 'Just now',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: 'Load More'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Share the Universe',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024-07-30 04:34:37'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ben He — Elektrotechnik & Informationstechnik Student am KIT. Portfolio mit Projekten in Robotik, KI und Embedded Systems.">
+  <title>Ben He | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">12</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/Homephoto.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Share the Universe"><img class="site-icon" src="/img/logo2.png"/><span class="site-name">Share the Universe</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Share the Universe</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/StUBenHe" target="_blank" title="Github"><i class="fab fa-github" style="color: #000000;"></i></a><a class="social-icon" href="mailto:ben.he1999@outlook.com" target="_blank" title="Email"><i class="fas fa-light fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/he-tai-shou-77" target="_blank" title="Zhihu"><i class="fas fa-brands fa-zhihu" style="color: #000000;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/04/IT2%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" title="IT2优化算法">IT2优化算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-07-03T23:29:40.000Z" title="Created 2024-07-04 01:29:40">2024-07-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/Algorithmus/">Algorithmus</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/02/IT2%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="IT2排序算法">IT2排序算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-07-01T23:29:40.000Z" title="Created 2024-07-02 01:29:40">2024-07-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/Algorithmus/">Algorithmus</a></span></div><div class="content">Sort_A(A)123456781. Sort_A(A)2.    for j = 2 to length[A]3.       do key = A[j]4.       i = j − 15.       while (i &gt; 0 and A[i] &gt; key)6.           do A[i + 1] = A[i]7.           i = i − 18.     A[i + 1] = key
+  <!-- Navigation -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Zur Startseite">BH</a>
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Hauptnavigation">
+        <a href="#about" data-section="about">Über mich</a>
+        <a href="#education" data-section="education">Ausbildung</a>
+        <a href="#experience" data-section="experience">Erfahrung</a>
+        <a href="#projects" data-section="projects">Projekte</a>
+        <a href="#skills" data-section="skills">Kenntnisse</a>
+        <a href="#contact" data-section="contact">Kontakt</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Design umschalten" title="Hell/Dunkel Modus">
+          <span class="theme-icon-light">☀️</span>
+          <span class="theme-icon-dark">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-分析：
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
+      <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-greeting">Hallo, ich bin</p>
+        <h1 class="hero-name">Ben He</h1>
+        <p class="hero-title" id="heroTitle"></p>
+        <p class="hero-subtitle">Elektrotechnik &amp; Informationstechnik · KI · Robotik · Embedded Systems</p>
+        <div class="hero-cta">
+          <a href="https://github.com/StUBenHe" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="#contact" class="btn btn-outline">Kontakt</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-indicator"></div>
+      </div>
+    </section>
 
-这是典型的 插入排序（Insertion Sort）。
-它通过将每个元素插入到已经排序的部分来排序整个数组。
-
-复杂度：
-
-最好情况（已经有序）：O(n)
-最坏情况（反序）：O(n^2)
-平均情况：O(n^2)
-
-特性：
-
-In-Place：是的，插入排序是就地排序。
-稳定性：是的，插入排序是稳定的。
-是否可中断：是的，可以在任何时间点停止。
-
-Sort_B(A)1234567891011121. Sort_B(A)2.    B = elements[A] 1 upto A/23.    C = elements[A] A / 2 + 1 upto  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/02/IT2%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" title="IT2搜索算法">IT2搜索算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-07-01T23:29:40.000Z" title="Created 2024-07-02 01:29:40">2024-07-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/Algorithmus/">Algorithmus</a></span></div><div class="content">线性搜索（Linear Search）：线性搜索逐个检查数组中的每个元素，直到找到目标元素或搜索完整个数组。时间复杂度为 O(n)，其中 n 是数组的长度。不需要数组有序。
-线性搜索的伪代码12345def linear_search(arr, target):    for i in range(len(arr)):        if arr[i] == target:            return i  # 返回目标元素的索引    return -1  # 如果找不到目标元素，返回 -1
-
-线性搜索的流程图以下是线性搜索的流程图，它描述了搜索过程中每一步的操作：
-1234567891011开始  ↓初始化索引 i = 0  ↓i &lt; 数组长度? ──否──→ 返回 -1  ↓是arr[i] == 目标值? ──是──→ 返回 i  ↓否i = i + 1  ↓回到检查 i &lt; 数组长度?
-
-详细步骤解释
-开始：启动线性搜索过程。
-初始化索引 i &#x3D; 0：将索引 i 初始化为 0，表示从数组的第一个元素开始。
-检查条件 i &lt; 数组长度：
-如果  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/01/IT2%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF2/" title="IT2信息技术2（目录）">IT2信息技术2（目录）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-30T23:29:40.000Z" title="Created 2024-07-01 01:29:40">2024-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a></span></div><div class="content">目录
-介绍
-
-模块 IT 2 的结构 &#x2F; 与 IT1 和其他课程的联系 (Aufbau Modul IT 2 &#x2F; Verbindung zu IT1 und anderen Lehrveranstaltungen)
-应用示例和动机 (Anwendungsbeispiele und Motivation)
-定义和术语 (Definitionen und Begriffe)
-
-
-算法基础&#x2F;属性
-
-算法定义等 (Definition Algorithmus et al.)
-算法分类（复杂性、问题类型、应用） (Klassifikation von Algorithmen (Komplexität, Problemstellung, Anwendung))
-特点 (Merkmale)
-算法分析（运行时间、效率、效果） (Algorithmen-Analyse (Laufzeit, Effizienz, Effektivität))
-
-
-排序算法
-
-冒泡排序（Bubble Sort） (Bubble Sort)
-插入排序（Insertion Sort） (Inser ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/01/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="HTML学习笔记">HTML学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-31T23:29:40.000Z" title="Created 2024-04-01 01:29:40">2024-04-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/%E7%BD%91%E9%A1%B5%E6%8A%80%E6%9C%AFHTML/">网页技术HTML</a></span></div><div class="content">HTML 是用来创建网页的标准标记语言。它由一系列标签组成，这些标签指示浏览器如何显示文本、图像和其他内容。
-HTML 规则概述HTML 规则概述如下：
-
-所有标签都必须成对出现，包括开始标签和结束标签。
-标签和属性名称必须小写。
-属性值必须用引号括起来。
-标签必须合理嵌套。
-
-HTML 标签的组成HTML 标签由尖括号 (&lt; 和 &gt;) 组成，括号内包含标签名称。例如，&lt;p&gt; 是段落标签，&lt;img&gt; 是图像标签。
-HTML 标签的分类HTML 标签可以根据其在页面上的显示方式分为两类：
-
-块级元素：块级元素总是占据新的一行，并且可以设置宽度和高度。常见的块级元素包括 div、h1、h2、p、ul、ol 等。
-行内元素：行内元素不会占据新的一行，并且只能设置宽度和高度。常见的行内元素包括 span、a、img、input 等。
-
-HTML 标签的属性HTML 标签可以包含属性，用于指定元素的附加信息。例如，&lt;img&gt; 标签可以包含 src 属性，用于指定图像的源文件。
-属性的语法如下：
-1&lt;标签名 属性名=&quot;属性值&quot ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/15/pandas%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" title="pandas学习笔记1">pandas学习笔记1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-15T00:29:40.000Z" title="Created 2024-03-15 01:29:40">2024-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">python学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/pandas/">pandas</a></span></div><div class="content">pandas 的 Series简介
-Series 是 pandas 中一维的数据结构，类似于 NumPy 的 ndarray，但具有更丰富的功能。它可以存储任何类型的数据，包括数字、字符串、日期、时间等。
-创建 Series
-可以使用以下方法创建 Series：
-
-从列表或元组创建：
-
-1234567891011import pandas as pds = pd.Series([1, 2, 3])print(s)# 输出：# 0    1# 1    2# 2    3# dtype: int64
-
-
-从字典创建：
-
-123456789s = pd.Series(&#123;&#x27;a&#x27;: 1, &#x27;b&#x27;: 2, &#x27;c&#x27;: 3&#125;)print(s)# 输出：# a    1# b    2# c    3# dtype: int64
-
-
-从 NumPy 数组创建：
-
-1234567891011import numpy as nps = pd.Series(np.array([1, 2, 3]))print(s)# 输出：# 0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/15/pandas%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" title="pandas学习笔记2">pandas学习笔记2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-15T00:29:40.000Z" title="Created 2024-03-15 01:29:40">2024-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">python学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/pandas/">pandas</a></span></div><div class="content">Matplotlib 作图Matplotlib 是 Python 中一个常用的绘图库，可以用来绘制各种类型的图表，例如折线图、柱状图、饼图、散点图等。
-安装 Matplotlib
-1pip install matplotlib
-
-基本绘图
-12345678910111213141516171819import matplotlib.pyplot as plt# 绘制折线图x = [1, 2, 3, 4, 5]y = [2, 4, 6, 8, 10]plt.plot(x, y)# 添加标题plt.title(&#x27;折线图&#x27;)# 添加 x 轴标签plt.xlabel(&#x27;x&#x27;)# 添加 y 轴标签plt.ylabel(&#x27;y&#x27;)# 显示图形plt.show()
-
-其他类型图表
-
-柱状图：
-
-1plt.bar(x, y)
-
-
-饼图：
-
-1plt.pie(y)
-
-
-散点图：
-
-1plt.scatter(x, y)
-
-高级绘图
-Matplotlib 还提供了许多高级功能，例如：
-
-子图：
-
-1234567plt.subplot(121)plt. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/10/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" title="python学习笔记3">python学习笔记3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-10T11:09:40.000Z" title="Created 2024-03-10 12:09:40">2024-03-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">python学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/python%E5%9F%BA%E7%A1%80/">python基础</a></span></div><div class="content">全局变量和局部变量全局变量
-在函数外部定义的变量，在程序的任何地方都可以访问和修改。
-局部变量
-在函数内部定义的变量，只能在该函数内部访问和修改。
-示例
-1234567891011# 定义全局变量num = 10def func():    # 定义局部变量    num = 20    print(num)  # 输出: 20func()print(num)  # 输出: 10
-
-结论
-
-全局变量在整个程序范围内有效，局部变量只在函数内部有效。
-在函数内部，如果存在与全局变量同名的局部变量，则优先使用局部变量。
-
-作用域
-变量的作用域是指变量可以被访问的范围。
-
-全局变量的作用域是整个程序。
-局部变量的作用域是其所在的函数内部。
-
-命名空间
-命名空间是用来存放变量的区域。
-
-Python 中每个函数都有自己的命名空间。
-全局变量存放在全局命名空间中。
-
-示例
-123456789101112131415161718# 定义全局变量num = 10def func():    # 定义局部变量    num = 20    print(num)  # 输出: 20func()print( ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/05/EMW00/" title="EMW00">EMW00</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-05T19:01:41.000Z" title="Created 2024-03-05 20:01:41">2024-03-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Elektrotechnik/">Elektrotechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Elektrotechnik/Elektromagnetische-Wellen/">Elektromagnetische Wellen</a></span></div><div class="content">Einführung
-Maxwellschen Gleichungen中出现的物理量的意义和特性：Maxwellschen Gleichungen中的物理量包括电场 $\mathbf{E}$，磁场 $\mathbf{B}$，电荷密度 $\rho$，和电流密度 $\mathbf{J}$ 等，它们描述了电磁场的行为和相互作用。这些物理量的性质包括它们的强度、方向、分布以及与电磁场的相互关系。
-
-各个Maxwellschen Gleichungen的含义：Maxwellschen Gleichungen包括高斯定律、高斯磁场定律、法拉第电磁感应定律和安培定律。这些方程描述了电场和磁场的产生、传播和相互作用。高斯定律和高斯磁场定律描述了电场和磁场的源，法拉第电磁感应定律描述了磁场随时间的变化如何产生电场，而安培定律描述了电流如何产生磁场。
-
-从积分形式到微分形式的Maxwellschen Gleichungen的转化：将Maxwellschen Gleichungen从积分形式转换为微分形式可以通过应用高斯定理和斯托克斯定理来完成。这种转换使得方程更适合于描述空间中的局部变化和微观效应。
-
-M ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/05/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" title="python学习笔记2">python学习笔记2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-05T11:09:40.000Z" title="Created 2024-03-05 12:09:40">2024-03-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Informationstechnik/">Informationstechnik</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">python学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/python%E5%9F%BA%E7%A1%80/">python基础</a></span></div><div class="content">Python 字符串字符串
-字符串是一串字符的集合。字符串可以使用单引号、双引号或三引号创建。
-例如：
-1234str1 = &#x27;Hello, world!&#x27;str2 = &quot;Hello, world!&quot;str3 = &quot;&quot;&quot;Hello,world!&quot;&quot;&quot;
-
-字符串的常见操作
-
-字符串拼接：可以使用 + 运算符连接两个字符串。
-字符串切片：可以使用 [] 运算符截取字符串的一部分。
-字符串查找：可以使用 in 运算符判断一个字符或字符串是否在另一个字符串中。
-字符串替换：可以使用 replace() 方法替换字符串中的部分内容。
-
-示例：
-12345678910111213141516# 字符串拼接str1 = &quot;Hello&quot;str2 = &quot;world!&quot;print(str1 + str2)# 字符串切片str = &quot;Hello, world!&quot;print(str[0:3])# 字符串查找str = &quot;Hello, worl ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ben He</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">12</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/StUBenHe" target="_blank" title="Github"><i class="fab fa-github" style="color: #000000;"></i></a><a class="social-icon" href="mailto:ben.he1999@outlook.com" target="_blank" title="Email"><i class="fas fa-light fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/he-tai-shou-77" target="_blank" title="Zhihu"><i class="fas fa-brands fa-zhihu" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/04/IT2%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" title="IT2优化算法">IT2优化算法</a><time datetime="2024-07-03T23:29:40.000Z" title="Created 2024-07-04 01:29:40">2024-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/02/IT2%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="IT2排序算法">IT2排序算法</a><time datetime="2024-07-01T23:29:40.000Z" title="Created 2024-07-02 01:29:40">2024-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/02/IT2%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" title="IT2搜索算法">IT2搜索算法</a><time datetime="2024-07-01T23:29:40.000Z" title="Created 2024-07-02 01:29:40">2024-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/01/IT2%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF2/" title="IT2信息技术2（目录）">IT2信息技术2（目录）</a><time datetime="2024-06-30T23:29:40.000Z" title="Created 2024-07-01 01:29:40">2024-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/01/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="HTML学习笔记">HTML学习笔记</a><time datetime="2024-03-31T23:29:40.000Z" title="Created 2024-04-01 01:29:40">2024-04-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
-            <a class="card-more-btn" href="/categories/" title="View More">
-    <i class="fas fa-angle-right"></i></a>
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">01</span> Über mich</h2>
+        <div class="about-layout">
+          <div class="about-content">
+            <p>
+              Ich bin ein Elektrotechnik- und Informationstechnikstudent am Karlsruher Institut für Technologie (KIT),
+              derzeit im Bachelorstudium mit Schwerpunkt auf Robotik, industrieller Software, KI-gestützter Automatisierung
+              und digitalen Zwillingstechnologien.
+            </p>
+            <p>
+              Meine Erfahrung reicht von der Entwicklung von Hardware- und Leistungselektronik-Prototypen über eingebettete Systeme
+              bis hin zu Full-Stack-Anwendungen und AI-Agenten für reale Automatisierungsprozesse. Besonders spannend finde ich die
+              Verbindung von theoretischem Verständnis und praxistauglicher Umsetzung in komplexen technischen Systemen.
+            </p>
+            <p>
+              Aktuell arbeite ich an meiner Bachelorarbeit im Bereich Digital-Twin-Infrastruktur für Robotik und entwickle eine
+              Python-Toolchain zur automatischen Generierung von AAS-Teilmodellen aus URDF-Daten. Daneben habe ich Projekte im
+              Bereich Android-Apps, Computer Vision und LLM-gestützter Workflow-Automation umgesetzt.
+            </p>
+            <div class="about-facts">
+              <div class="about-fact">
+                <strong>Studium</strong>
+                <span>B.Sc. Elektrotechnik &amp; Informationstechnik, KIT</span>
+              </div>
+              <div class="about-fact">
+                <strong>Schwerpunkt</strong>
+                <span>Robotik · Digital Twin · AI Automation</span>
+              </div>
+              <div class="about-fact">
+                <strong>Stärken</strong>
+                <span>Systemdenken · Selbstständigkeit · schnelle Umsetzung</span>
+              </div>
+              <div class="about-fact">
+                <strong>Aktuell</strong>
+                <span>Bachelorarbeit und wissenschaftliche Projekte</span>
+              </div>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Elektrotechnik/"><span class="card-category-list-name">Elektrotechnik</span><span class="card-category-list-count">6</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Elektrotechnik/Elektroenergiesysteme/"><span class="card-category-list-name">Elektroenergiesysteme</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Elektrotechnik/Elektromagnetische-Wellen/"><span class="card-category-list-name">Elektromagnetische Wellen</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Informationstechnik/"><span class="card-category-list-name">Informationstechnik</span><span class="card-category-list-count">10</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Informationstechnik/Algorithmus/"><span class="card-category-list-name">Algorithmus</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">python学习笔记</span><span class="card-category-list-count">5</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/pandas/"><span class="card-category-list-name">pandas</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Informationstechnik/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/python%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">python基础</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.2em; color: #999da3">目录</a> <a href="/tags/%E8%A1%8C%E6%B3%A2/" style="font-size: 1.1em; color: #999">行波</a> <a href="/tags/pandas/" style="font-size: 1.2em; color: #999da3">pandas</a> <a href="/tags/%E9%9D%9E%E9%BD%90%E6%AC%A1%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" style="font-size: 1.1em; color: #999">非齐次微分方程</a> <a href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" style="font-size: 1.2em; color: #999da3">微分方程</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E5%9F%BA%E7%A1%80/" style="font-size: 1.5em; color: #99a9bf">数学物理基础</a> <a href="/tags/%E9%BD%90%E6%AC%A1%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" style="font-size: 1.1em; color: #999">齐次微分方程</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">系统转换</a> <a href="/tags/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84/" style="font-size: 1.2em; color: #999da3">麦克斯韦方程组</a> <a href="/tags/z%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">z变换</a> <a href="/tags/%E7%94%B5%E5%8A%9B%E7%B3%BB%E7%BB%9F/" style="font-size: 1.4em; color: #99a5b6">电力系统</a> <a href="/tags/Algorithmus/" style="font-size: 1.3em; color: #99a1ac">Algorithmus</a> <a href="/tags/python/" style="font-size: 1.5em; color: #99a9bf">python</a> <a href="/tags/%E7%A7%AF%E5%88%86%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">积分变换</a> <a href="/tags/%E4%BC%A0%E8%BE%93%E7%BA%BF%E7%90%86%E8%AE%BA/" style="font-size: 1.1em; color: #999">传输线理论</a> <a href="/tags/%E5%85%8B%E8%8E%B1%E5%A7%86%E6%B3%95%E5%88%99/" style="font-size: 1.1em; color: #999">克莱姆法则</a> <a href="/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">傅里叶变换</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 1.2em; color: #999da3">线性代数</a> <a href="/tags/%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 1.1em; color: #999">电磁波</a> <a href="/tags/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2/" style="font-size: 1.1em; color: #999">拉普拉斯变换</a> <a href="/tags/%E4%B8%89%E7%9B%B8%E4%BA%A4%E6%B5%81%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">三相交流系统</a> <a href="/tags/%E9%83%A8%E5%88%86%E5%88%86%E5%BC%8F%E5%88%86%E8%A7%A3/" style="font-size: 1.1em; color: #999">部分分式分解</a> <a href="/tags/%E5%88%86%E5%BC%8F%E5%88%86%E8%A7%A3/" style="font-size: 1.1em; color: #999">分式分解</a> <a href="/tags/%E5%8D%95%E7%9B%B8%E4%BA%A4%E6%B5%81%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">单相交流系统</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">5</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">21</div></div><div class="webinfo-item"><div class="item-name">Runtime :</div><div class="item-count" id="runtimeshow" data-publishDate="2023-10-29T23:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-30T02:34:36.878Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: rgb(0,0,0)"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Ben He</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">感谢来自www.pixabay.com 的tieracanler提供的背景图</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
-  init: (str) => {
-    window.typed = new Typed('#subtitle', Object.assign({
-      strings: str,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50,
-    }, null))
-  },
-  run: (subtitleType) => {
-    if (true) {
-      if (typeof Typed === 'function') {
-        subtitleType()
-      } else {
-        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
-      }
-    } else {
-      subtitleType()
-    }
-  }
-}
-</script><script>function subtitleType () {
-  if (true) {
-    typedJSFn.init(["Man wird nicht älter,sondern besser.-– Theodor Fontane"])
-  } else {
-    document.getElementById("subtitle").textContent = "Man wird nicht älter,sondern besser.-– Theodor Fontane"
-  }
-}
-typedJSFn.run(subtitleType)</script></div></div></body></html>
+          </div>
+          <aside class="about-photo-card" aria-label="Persönliche Vorstellung">
+            <div class="photo-frame">
+              <img src="6572d07c20fc7606f30b6678b430be40.jpg" alt="Portrait von Ben He">
+            </div>
+            <div class="about-badges">
+              <span class="tag tag-skill">KIT · B.Sc.</span>
+              <span class="tag tag-skill">Python / ROS 2</span>
+              <span class="tag tag-skill">AI Agent</span>
+              <span class="tag tag-skill">Digital Twin</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section section-alt" id="education">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">02</span> Ausbildung</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3>Karlsruher Institut für Technologie (KIT)</h3>
+                <span class="timeline-date">10/2021 – 09/2026</span>
+              </div>
+              <p class="timeline-subtitle">B.Sc. Elektrotechnik und Informationstechnik</p>
+              <p class="timeline-location">📍 Karlsruhe</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3>Yangtze Universität</h3>
+                <span class="timeline-date">09/2017 – 09/2020</span>
+              </div>
+              <p class="timeline-subtitle">Informations- und Informatikwissenschaften</p>
+              <p class="timeline-location">📍 Jingzhou, China</p>
+              <p class="timeline-note">Wechsel ans KIT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">03</span> Berufserfahrung</h2>
+        <div class="exp-grid">
+          <article class="exp-card">
+            <div class="exp-card-header">
+              <h3>Werkstudent – Leistungselektronik &amp; Hardware-Design</h3>
+              <span class="exp-date">05/2024 – 09/2024</span>
+            </div>
+            <p class="exp-company">Institut für Technische Elektronik (ETI), KIT</p>
+            <div class="exp-tags">
+              <span class="tag">MATLAB/Simulink</span>
+              <span class="tag">Altium Designer</span>
+            </div>
+            <ul class="exp-details">
+              <li>Entwurf und Simulation eines Buck-Wandlers in MATLAB/Simulink; Erzielung einer Ausgangsspannungswelligkeit &lt;5% unter variablen Lastbedingungen.</li>
+              <li>Vollständige PCB-Schaltplanerstellung, Layout und elektrische Regelprüfung in Altium Designer.</li>
+            </ul>
+          </article>
+          <article class="exp-card">
+            <div class="exp-card-header">
+              <h3>Werkstudent – Autonomes Fahren (Prototyping)</h3>
+              <span class="exp-date">05/2023 – 07/2023</span>
+            </div>
+            <p class="exp-company">Institut für Technik der Informationsverarbeitung (ITIV), KIT</p>
+            <div class="exp-tags">
+              <span class="tag">C++</span>
+              <span class="tag">Sensorfusion</span>
+            </div>
+            <ul class="exp-details">
+              <li>Entwicklung eingebetteter C++-Software für einen autonomen Fahrzeugprototyp (Maßstab 1:10) mit Echtzeit-Hinderniserkennung und -vermeidung auf einem Dual-Core ARM MCU.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">04</span> Projekte</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-icon">🤖</div>
+            <h3>Bachelorarbeit: Digital-Twin-Infrastruktur für Robotik</h3>
+            <p class="project-meta">Institut für Regelungs- und Steuerungssysteme (IRS), KIT · 06/2025 – 12/2025</p>
+            <p class="project-desc">Entwicklung einer Python-Toolchain zur automatischen Extraktion von URDF-/YAML-Daten in sechs semantische AAS-Teilmodelle. Multi-Robot-Generator für ROS-2-Simulationen aus AAS-Daten — ohne manuelle Konfiguration. Validierung auf heterogenen Robotersystemen (Universal Robots & igus ReBeL).</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">ROS 2</span>
+              <span class="tag">AAS (v3.0)</span>
+              <span class="tag">XML</span>
+            </div>
+            <a href="https://github.com/StUBenHe/URCell" target="_blank" rel="noopener" class="project-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              github.com/StUBenHe/URCell
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">🧠</div>
+            <h3>KI-gestützter Automatisierungsagent für Kundenbeschwerden</h3>
+            <p class="project-meta">Technische Interview-Demo · 2025</p>
+            <p class="project-desc">LLM-basierter Agent zur End-to-End-Automatisierung von Kundenbeschwerden — von Ticketanalyse über Informationsrecherche bis zur E-Mail-Generierung. Integration von RAG zum Abgleich mit Produktspezifikationen. Reduzierung der durchschnittlichen Bearbeitungszeit um ∼80%.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">LLM</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Prompt Engineering</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">📱</div>
+            <h3>Full-Stack Gesundheits-App „Fitlog"</h3>
+            <p class="project-meta">Persönliches Projekt (KI + Mobile) · 01/2025 – heute</p>
+            <p class="project-desc">Full-Stack-System mit Android-Client (MVVM) und serverseitiger KI-Pipeline zur automatisierten Kalorienschätzung durch Bilderkennung. REST API + lokale/entfernte Datenbanksynchronisation (Room + Remote DB) mit offlinefähiger Architektur.</p>
+            <div class="project-tags">
+              <span class="tag">Kotlin/Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Android Studio</span>
+            </div>
+            <a href="https://github.com/StUBenHe/Fitlog" target="_blank" rel="noopener" class="project-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              github.com/StUBenHe/Fitlog
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">🃏</div>
+            <h3>Psychologisches Kartenspiel „Dream Cards"</h3>
+            <p class="project-meta">Persönliches Projekt (Spieldesign + Psychologie) · 2025</p>
+            <p class="project-desc">Kartenspiel zur Unterbewusstseinsanalyse, inspiriert von OH/OK-Karten, das assoziative Bilder zur Selbstreflexion nutzt. Serverseitige Logik für Kartenziehen, Sitzungsverwaltung und interpretative Anleitung auf demselben Backend wie Fitlog.</p>
+            <div class="project-tags">
+              <span class="tag">Kotlin/Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">Android Studio</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">05</span> Technische Kenntnisse</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>🤖 KI &amp; LLM</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">LLM-Agenten</span>
+              <span class="tag tag-skill">RAG</span>
+              <span class="tag tag-skill">Prompt Engineering</span>
+              <span class="tag tag-skill">Computer Vision</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>💻 Programmierung</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Python</span>
+              <span class="tag tag-skill">NumPy</span>
+              <span class="tag tag-skill">asyncio</span>
+              <span class="tag tag-skill">rclpy</span>
+              <span class="tag tag-skill">Kotlin/Java</span>
+              <span class="tag tag-skill">C++</span>
+              <span class="tag tag-skill">MATLAB</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>🦾 Robotik</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">ROS2</span>
+              <span class="tag tag-skill">URDF/Xacro</span>
+              <span class="tag tag-skill">AAS</span>
+              <span class="tag tag-skill">Gazebo</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>📱 Mobile &amp; Web</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Android SDK</span>
+              <span class="tag tag-skill">MVVM</span>
+              <span class="tag tag-skill">Room</span>
+              <span class="tag tag-skill">REST API Design</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>🛠 Tools &amp; DevOps</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Git</span>
+              <span class="tag tag-skill">Docker</span>
+              <span class="tag tag-skill">Altium Designer</span>
+              <span class="tag tag-skill">Simulink</span>
+              <span class="tag tag-skill">Linux (Ubuntu)</span>
+              <span class="tag tag-skill">LaTeX</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>🌐 Sprachen</h3>
+            <div class="skill-tags">
+              <span class="tag tag-skill">Chinesisch (Muttersprache)</span>
+              <span class="tag tag-skill">Deutsch (C1 / DSH-3)</span>
+              <span class="tag tag-skill">Englisch (B2)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section section-alt" id="awards">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">06</span> Auszeichnungen</h2>
+        <div class="awards-list">
+          <div class="award-item">
+            <div class="award-icon">🏆</div>
+            <div class="award-content">
+              <h3>Top 10 — MATLAB-Programmierwettbewerb</h3>
+              <p>Yangtze Universität, 2019</p>
+            </div>
+          </div>
+          <div class="award-item">
+            <div class="award-icon">🥈</div>
+            <div class="award-content">
+              <h3>2. Preis — Wettbewerb Mathematische Theoreme</h3>
+              <p>Yangtze Universität, 2018</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">07</span> Kontakt</h2>
+        <p class="contact-intro">Ich bin immer offen für neue Möglichkeiten und spannende Projekte. Sprechen Sie mich gerne an!</p>
+        <div class="contact-grid">
+          <a href="mailto:ben.he1999@outlook.com" class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>E-Mail</h3>
+            <p>ben.he1999@outlook.com</p>
+          </a>
+          <a href="tel:+4915568616003" class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Telefon</h3>
+            <p>+49 155 68616003</p>
+          </a>
+          <a href="https://github.com/StUBenHe" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <h3>GitHub</h3>
+            <p>github.com/StUBenHe</p>
+          </a>
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Standort</h3>
+            <p>Karlsruhe, Deutschland</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Ben He. Alle Rechte vorbehalten.</p>
+      <a href="#hero" class="back-to-top" aria-label="Zurück nach oben">↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
