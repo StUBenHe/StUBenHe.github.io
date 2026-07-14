@@ -29,9 +29,11 @@
         <a href="#contact" data-section="contact" data-i18n="nav-contact">Kontakt</a>
       </nav>
       <div class="nav-actions">
-        <button class="lang-toggle" id="langToggle" data-i18n-aria="lang-switch" aria-label="Switch language" title="DE / EN">
-          <span>EN</span>
-        </button>
+        <div class="lang-switcher" id="langSwitcher" role="radiogroup" aria-label="Sprache wählen">
+          <button class="lang-option active" data-lang="de" aria-checked="true" role="radio">DE</button>
+          <button class="lang-option" data-lang="en" aria-checked="false" role="radio">EN</button>
+          <button class="lang-option" data-lang="zh" aria-checked="false" role="radio">中文</button>
+        </div>
         <button class="theme-toggle" id="themeToggle" data-i18n-aria="theme-switch" aria-label="Design umschalten" title="Hell/Dunkel Modus">
           <span class="theme-icon-light">☀️</span>
           <span class="theme-icon-dark">🌙</span>

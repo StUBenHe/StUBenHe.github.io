@@ -257,7 +257,8 @@
     DOM.navLinkItems = document.querySelectorAll('.nav-links a');
     DOM.hamburger = document.getElementById('hamburger');
     DOM.themeToggle = document.getElementById('themeToggle');
-    DOM.langToggle = document.getElementById('langToggle');
+    DOM.langSwitcher = document.getElementById('langSwitcher');
+    DOM.langOptions = document.querySelectorAll('.lang-option');
     DOM.scrollProgress = document.getElementById('scrollProgress');
     DOM.heroTitle = document.getElementById('heroTitle');
     DOM.heroParticles = document.getElementById('heroParticles');
@@ -290,11 +291,13 @@
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
 
-    // Update lang toggle button — shows next language
-    const next = nextLang(lang);
-    if (DOM.langToggle) {
-      DOM.langToggle.querySelector('span').textContent = LANG_LABEL[next];
-      DOM.langToggle.setAttribute('aria-label', T[lang]['lang-switch']);
+    // Update lang switcher buttons
+    if (DOM.langOptions) {
+      DOM.langOptions.forEach((btn) => {
+        const active = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-checked', active ? 'true' : 'false');
+      });
     }
 
     // Update elements with data-i18n
@@ -339,8 +342,14 @@
     }
   }
 
-  function toggleLang() {
-    setLang(nextLang(currentLang));
+  function initLangSwitcher() {
+    if (!DOM.langOptions) return;
+    DOM.langOptions.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang && lang !== currentLang) setLang(lang);
+      });
+    });
   }
 
   // ─── Theme Toggle ────────────────────────────────────────
@@ -697,10 +706,8 @@
       DOM.themeToggle.addEventListener('click', toggleTheme);
     }
 
-    // Language toggle
-    if (DOM.langToggle) {
-      DOM.langToggle.addEventListener('click', toggleLang);
-    }
+    // Language switcher
+    initLangSwitcher();
 
     // System theme auto-switch
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
