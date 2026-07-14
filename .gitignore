@@ -5,3 +5,6 @@ foto.jpg
 中文简历.txt
 lebenslauf_mit_foto.tex
 .agents/
+
+# Keep old unoptimized image locally, deploy compressed versions
+6572d07c20fc7606f30b6678b430be40.jpg
