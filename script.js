@@ -373,10 +373,10 @@
     // Typewriter
     if (DOM.heroTitle) {
       const titles = [
-        'Robotik & Digital Twin',
+        'AI & Robotics Engineer',
+        'Digital Twin & ROS 2',
         'KI-gestützte Automatisierung',
-        'Embedded Systems',
-        'Full-Stack Entwicklung',
+        'Embedded Systems & Full-Stack',
       ];
       typewriter(DOM.heroTitle, titles, {
         typeSpeed: 55,
