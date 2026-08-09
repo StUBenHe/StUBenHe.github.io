@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben He – Power Electronics &amp; Hardware Design</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ─── Project detail page (power-electronics.html) ─── */
+  .pe-page {
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  }
+  .pe-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+  }
+  .pe-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .pe-header h1 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    color: var(--color-text);
+    line-height: 1.3;
+    margin-bottom: var(--space-sm);
+  }
+  .pe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: 0.92rem;
+  }
+  .pe-section {
+    margin-top: var(--space-2xl);
+  }
+  .pe-section h2 {
+    font-size: 1.35rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+  .pe-section p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+  .pe-specs {
+    list-style: disc;
+    padding-left: 1.25rem;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+  }
+  .pe-specs li {
+    margin-bottom: 0.35rem;
+  }
+  .pe-figure {
+    margin: var(--space-lg) 0 0;
+    max-width: 760px;
+  }
+  .pe-figure img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+  .pe-figure figcaption {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-top: var(--space-sm);
+  }
+  .pe-gallery .exp-gallery-item img {
+    height: 180px;
+  }
+  .pe-footer {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+</style>
+<script>
+  /* Apply saved theme before paint to avoid flash */
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<main class="container pe-page">
+
+  <header class="pe-topbar">
+    <a class="pe-back" href="index.html">← <span data-i18n="pe-back">Zurück zur Website</span></a>
+    <div class="lang-switcher" role="group" aria-label="Sprache wählen">
+      <button type="button" class="lang-option" data-lang="de">DE</button>
+      <button type="button" class="lang-option" data-lang="en">EN</button>
+      <button type="button" class="lang-option" data-lang="zh">中文</button>
+    </div>
+  </header>
+
+  <header class="pe-header">
+    <h1 data-i18n="pe-title">Werkstudent – Leistungselektronik &amp; Hardware-Design</h1>
+    <div class="pe-meta">
+      <span class="exp-date">05/2024 – 09/2024</span>
+      <span>Institut für Technische Elektronik (ETI), KIT</span>
+    </div>
+    <div class="exp-tags">
+      <span class="tag">MATLAB/Simulink</span>
+      <span class="tag">Simscape</span>
+      <span class="tag">Altium Designer</span>
+      <span class="tag">STM32</span>
+      <span class="tag">Embedded Coder</span>
+    </div>
+  </header>
+
+  <section class="pe-section">
+    <h2 data-i18n="pe-s1-h">Überblick</h2>
+    <p data-i18n="pe-s1">Im Rahmen des Praktikums „Hard- und Software in leistungselektronischen Systemen“ (HSLS) am Elektrotechnischen Institut wurde ein kompletter DC-DC-Tiefsetzsteller (Buck-Wandler) entwickelt — von der Auslegung und Simulation der Leistungselektronik über Schaltplan, Layout und Aufbau bis zur digitalen Regelung auf einem STM32-Mikrocontroller. Die Platine vereint Leistungsteil, Mess- und Ansteuerschaltungen sowie die Bedienschnittstelle (Taster, Potentiometer, Status-LEDs) in einem mehrlagigen Design.</p>
+    <figure class="pe-figure">
+      <img src="hard_software/Hardware Prototype.jpg" alt="Hardware-Prototyp" data-i18n-alt="pe-g4" loading="lazy">
+      <figcaption data-i18n="pe-g4">Hardware-Prototyp</figcaption>
+    </figure>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pe-s2-h">Leistungsteil &amp; Spezifikationen</h2>
+    <p data-i18n="pe-s2">Der Leistungsteil ist als Halbbrücke mit zwei IPB107N20NA-MOSFETs aufgebaut und wird über einen isolierten Gatetreiber (SI823H4) mit 200 ns Verriegelungszeit und Bootstrap-Versorgung angesteuert. Die Ausgangsspannung wird über eine Schraubklemme abgegriffen; der Drosselstrom kann über eine Klemme hinter dem Stromsensor gemessen werden.</p>
+    <ul class="pe-specs">
+      <li data-i18n="pe-spec1"><strong>Eingangsspannung:</strong> 40 V</li>
+      <li data-i18n="pe-spec2"><strong>Ausgangsspannungsbereich:</strong> 1–36 V</li>
+      <li data-i18n="pe-spec3"><strong>Max. Ausgangsleistung:</strong> 50 W</li>
+      <li data-i18n="pe-spec4"><strong>Taktfrequenz:</strong> 50 kHz</li>
+      <li data-i18n="pe-spec5"><strong>Max. Drosselstrom:</strong> 5 A</li>
+      <li data-i18n="pe-spec6"><strong>Min. Wirkungsgrad:</strong> ≥ 75 %</li>
+      <li data-i18n="pe-spec7"><strong>Ausgangsspannungsrippel:</strong> ≤ 0,5 % von U<sub>E</sub></li>
+    </ul>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pe-s3-h">Simulation &amp; Auslegung</h2>
+    <p data-i18n="pe-s3">Der komplette Wandler wurde in MATLAB/Simulink mit Simscape modelliert — Leistungsteil, Messschaltungen und Modulator inklusive der realen Bauteilwerte. Die Auslegung (minimale Drosselinduktivität, Ein-/Ausgangskapazitäten, Rippelströme, Spannungsteiler mit Tiefpässen) wurde rechnerisch in MATLAB-Skripten durchgeführt und mit der Simulation verifiziert. Zusätzlich wurden die MOSFET-Verluste berechnet und ein vereinfachtes thermisches Modell erstellt.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pe-s4-h">Schaltplan &amp; PCB (Altium Designer)</h2>
+    <p data-i18n="pe-s4">In Altium Designer wurde der vollständige Schaltplan erstellt: Leistungsteil, Strommessung (ACS722) mit 25-kHz-Tiefpass, Spannungsmessung mit Spannungsteiler, 10-kHz-Tiefpass und Spannungsfolger (MCP6022), Bedienung über Potentiometer und Taster sowie Status-LEDs und Messpunkte. Das mehrlagige Layout wurde mit niederinduktivem Kommutierungskreis, 80-mil-Leistungsbahnen, getrennten Masseflächen (GND/SGND) und EMV-Rand geroutet und per Design-Rules-Check (DRC) verifiziert.</p>
+    <div class="exp-gallery pe-gallery">
+      <figure class="exp-gallery-item">
+        <img src="hard_software/Circuit Schematic.png" alt="Schaltplan" data-i18n-alt="pe-g1" loading="lazy">
+        <figcaption data-i18n="pe-g1">Schaltplan</figcaption>
+      </figure>
+      <figure class="exp-gallery-item">
+        <img src="hard_software/Electrical Schematic.png" alt="Elektrischer Schaltplan" data-i18n-alt="pe-g2" loading="lazy">
+        <figcaption data-i18n="pe-g2">Elektrischer Schaltplan</figcaption>
+      </figure>
+      <figure class="exp-gallery-item">
+        <img src="hard_software/PCB Design.png" alt="PCB-Layout" data-i18n-alt="pe-g3" loading="lazy">
+        <figcaption data-i18n="pe-g3">PCB-Layout</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pe-s5-h">Aufbau &amp; Inbetriebnahme</h2>
+    <p data-i18n="pe-s5">Die Platine wurde manuell bestückt (SMD und THT) und nach einem systematischen Inbetriebnahmeprotokoll in Betrieb genommen: optische Prüfung, Spannungsversorgungen (12 V / 3,3 V), Gatetreiber und Leistungsteil — inklusive Fehlersuche bei typischen Problemen wie Kaltlötstellen oder Fehlbestückung.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pe-s6-h">Digitale Regelung</h2>
+    <p data-i18n="pe-s6">Auf dem STM32 (NUCLEO-G431KB) wurde eine kaskadierte Regelung implementiert: ein schneller Stromregler (PI, ausgelegt nach dem Betragsoptimum) mit Anti-Windup und Vorsteuerung sowie ein überlagerter Spannungsregler (PI, symmetrisches Optimum), dessen Ausgang den Stromsollwert begrenzt. Eine Ablaufsteuerung in Stateflow bildet die Zustände Inaktiv / Normalbetrieb / Fehler ab — bei Überstrom (&gt; 10 A) wird in den Fehlerzustand gewechselt und der Gatetreiber gesperrt. Der C++-Code wurde automatisch mit Embedded Coder erzeugt und auf den Mikrocontroller geflasht; zur Überwachung diente LabMCT.</p>
+    <figure class="pe-figure">
+      <img src="hard_software/Digital Control System.png" alt="Digitales Regelsystem" data-i18n-alt="pe-g5" loading="lazy">
+      <figcaption data-i18n="pe-g5">Digitales Regelsystem</figcaption>
+    </figure>
+  </section>
+
+  <footer class="pe-footer">
+    <a class="pe-back" href="index.html">← <span data-i18n="pe-back">Zurück zur Website</span></a>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var T = {
+    de: {
+      'pe-back': 'Zurück zur Website',
+      'pe-title': 'Werkstudent – Leistungselektronik & Hardware-Design',
+      'pe-s1-h': 'Überblick',
+      'pe-s1': 'Im Rahmen des Praktikums „Hard- und Software in leistungselektronischen Systemen“ (HSLS) am Elektrotechnischen Institut wurde ein kompletter DC-DC-Tiefsetzsteller (Buck-Wandler) entwickelt — von der Auslegung und Simulation der Leistungselektronik über Schaltplan, Layout und Aufbau bis zur digitalen Regelung auf einem STM32-Mikrocontroller. Die Platine vereint Leistungsteil, Mess- und Ansteuerschaltungen sowie die Bedienschnittstelle (Taster, Potentiometer, Status-LEDs) in einem mehrlagigen Design.',
+      'pe-s2-h': 'Leistungsteil & Spezifikationen',
+      'pe-s2': 'Der Leistungsteil ist als Halbbrücke mit zwei IPB107N20NA-MOSFETs aufgebaut und wird über einen isolierten Gatetreiber (SI823H4) mit 200 ns Verriegelungszeit und Bootstrap-Versorgung angesteuert. Die Ausgangsspannung wird über eine Schraubklemme abgegriffen; der Drosselstrom kann über eine Klemme hinter dem Stromsensor gemessen werden.',
+      'pe-spec1': '<strong>Eingangsspannung:</strong> 40 V',
+      'pe-spec2': '<strong>Ausgangsspannungsbereich:</strong> 1–36 V',
+      'pe-spec3': '<strong>Max. Ausgangsleistung:</strong> 50 W',
+      'pe-spec4': '<strong>Taktfrequenz:</strong> 50 kHz',
+      'pe-spec5': '<strong>Max. Drosselstrom:</strong> 5 A',
+      'pe-spec6': '<strong>Min. Wirkungsgrad:</strong> ≥ 75 %',
+      'pe-spec7': '<strong>Ausgangsspannungsrippel:</strong> ≤ 0,5 % von U<sub>E</sub>',
+      'pe-s3-h': 'Simulation & Auslegung',
+      'pe-s3': 'Der komplette Wandler wurde in MATLAB/Simulink mit Simscape modelliert — Leistungsteil, Messschaltungen und Modulator inklusive der realen Bauteilwerte. Die Auslegung (minimale Drosselinduktivität, Ein-/Ausgangskapazitäten, Rippelströme, Spannungsteiler mit Tiefpässen) wurde rechnerisch in MATLAB-Skripten durchgeführt und mit der Simulation verifiziert. Zusätzlich wurden die MOSFET-Verluste berechnet und ein vereinfachtes thermisches Modell erstellt.',
+      'pe-s4-h': 'Schaltplan & PCB (Altium Designer)',
+      'pe-s4': 'In Altium Designer wurde der vollständige Schaltplan erstellt: Leistungsteil, Strommessung (ACS722) mit 25-kHz-Tiefpass, Spannungsmessung mit Spannungsteiler, 10-kHz-Tiefpass und Spannungsfolger (MCP6022), Bedienung über Potentiometer und Taster sowie Status-LEDs und Messpunkte. Das mehrlagige Layout wurde mit niederinduktivem Kommutierungskreis, 80-mil-Leistungsbahnen, getrennten Masseflächen (GND/SGND) und EMV-Rand geroutet und per Design-Rules-Check (DRC) verifiziert.',
+      'pe-s5-h': 'Aufbau & Inbetriebnahme',
+      'pe-s5': 'Die Platine wurde manuell bestückt (SMD und THT) und nach einem systematischen Inbetriebnahmeprotokoll in Betrieb genommen: optische Prüfung, Spannungsversorgungen (12 V / 3,3 V), Gatetreiber und Leistungsteil — inklusive Fehlersuche bei typischen Problemen wie Kaltlötstellen oder Fehlbestückung.',
+      'pe-s6-h': 'Digitale Regelung',
+      'pe-s6': 'Auf dem STM32 (NUCLEO-G431KB) wurde eine kaskadierte Regelung implementiert: ein schneller Stromregler (PI, ausgelegt nach dem Betragsoptimum) mit Anti-Windup und Vorsteuerung sowie ein überlagerter Spannungsregler (PI, symmetrisches Optimum), dessen Ausgang den Stromsollwert begrenzt. Eine Ablaufsteuerung in Stateflow bildet die Zustände Inaktiv / Normalbetrieb / Fehler ab — bei Überstrom (> 10 A) wird in den Fehlerzustand gewechselt und der Gatetreiber gesperrt. Der C++-Code wurde automatisch mit Embedded Coder erzeugt und auf den Mikrocontroller geflasht; zur Überwachung diente LabMCT.',
+      'pe-g1': 'Schaltplan',
+      'pe-g2': 'Elektrischer Schaltplan',
+      'pe-g3': 'PCB-Layout',
+      'pe-g4': 'Hardware-Prototyp',
+      'pe-g5': 'Digitales Regelsystem'
+    },
+    en: {
+      'pe-back': 'Back to website',
+      'pe-title': 'Research Assistant – Power Electronics & Hardware Design',
+      'pe-s1-h': 'Overview',
+      'pe-s1': 'As part of the lab course “Hardware and Software in Power Electronic Systems” (HSLS) at the Institute of Electrical Engineering (ETI), a complete DC-DC buck converter was developed — from power electronics design and simulation, through schematic, PCB layout and assembly, to digital control on an STM32 microcontroller. The board combines the power stage, measurement and gate-drive circuits, and the user interface (push button, potentiometer, status LEDs) in a multilayer design.',
+      'pe-s2-h': 'Power Stage & Specifications',
+      'pe-s2': 'The power stage is built as a half bridge with two IPB107N20NA MOSFETs, driven by an isolated gate driver (SI823H4) with 200 ns dead time and bootstrap supply. The output voltage is available at a screw terminal; the inductor current can be measured through a terminal behind the current sensor.',
+      'pe-spec1': '<strong>Input voltage:</strong> 40 V',
+      'pe-spec2': '<strong>Output voltage range:</strong> 1–36 V',
+      'pe-spec3': '<strong>Max. output power:</strong> 50 W',
+      'pe-spec4': '<strong>Switching frequency:</strong> 50 kHz',
+      'pe-spec5': '<strong>Max. inductor current:</strong> 5 A',
+      'pe-spec6': '<strong>Min. efficiency:</strong> ≥ 75 %',
+      'pe-spec7': '<strong>Output voltage ripple:</strong> ≤ 0.5 % of U<sub>E</sub>',
+      'pe-s3-h': 'Simulation & Design',
+      'pe-s3': 'The complete converter was modeled in MATLAB/Simulink with Simscape — power stage, measurement circuits and modulator, including the real component values. The design (minimum inductor value, input/output capacitances, ripple currents, voltage dividers with low-pass filters) was carried out analytically in MATLAB scripts and verified against the simulation. MOSFET losses were calculated and a simplified thermal model was built.',
+      'pe-s4-h': 'Schematic & PCB (Altium Designer)',
+      'pe-s4': 'The full schematic was created in Altium Designer: power stage, current sensing (ACS722) with 25 kHz low-pass filter, voltage measurement with voltage divider, 10 kHz low-pass filter and voltage follower (MCP6022), potentiometer/button user interface, status LEDs and measurement points. The multilayer layout was routed with a low-inductance commutation loop, 80 mil power traces, separated power/signal ground planes (GND/SGND) and an EMC edge, and verified by a design rules check (DRC).',
+      'pe-s5-h': 'Assembly & Commissioning',
+      'pe-s5': 'The board was assembled by hand (SMD and THT) and commissioned following a systematic protocol: optical inspection, supply rails (12 V / 3.3 V), gate driver and power stage — including troubleshooting of typical issues such as cold solder joints or mispopulated components.',
+      'pe-s6-h': 'Digital Control',
+      'pe-s6': 'A cascaded control scheme was implemented on the STM32 (NUCLEO-G431KB): a fast current controller (PI, tuned by the magnitude optimum) with anti-windup and feed-forward, and an outer voltage controller (PI, symmetrical optimum) whose output limits the current reference. A Stateflow sequence control implements the states idle / normal operation / fault — an overcurrent (> 10 A) triggers the fault state and disables the gate driver. The C++ code was generated automatically with Embedded Coder and flashed to the microcontroller; LabMCT was used for monitoring.',
+      'pe-g1': 'Circuit Schematic',
+      'pe-g2': 'Electrical Schematic',
+      'pe-g3': 'PCB Layout',
+      'pe-g4': 'Hardware Prototype',
+      'pe-g5': 'Digital Control System'
+    },
+    zh: {
+      'pe-back': '返回网站',
+      'pe-title': '学生助研 – 电力电子与硬件设计',
+      'pe-s1-h': '项目概览',
+      'pe-s1': '作为电气工程研究所（ETI）"电力电子系统中的硬件与软件"（HSLS）实验课程的一部分，完整开发了一款 DC-DC Buck 降压变换器——从电力电子设计与仿真，经原理图、PCB 布局与装配，到基于 STM32 的数字控制。电路板将功率级、测量与栅极驱动电路以及人机接口（按键、电位器、状态 LED）集成于多层板设计之中。',
+      'pe-s2-h': '功率级与规格',
+      'pe-s2': '功率级采用半桥结构，由两颗 IPB107N20NA MOSFET 构成，通过隔离式栅极驱动器（SI823H4）驱动，具备 200 ns 死区时间与自举供电。输出电压经螺钉端子引出；电感电流可通过电流传感器后方的端子测量。',
+      'pe-spec1': '<strong>输入电压：</strong>40 V',
+      'pe-spec2': '<strong>输出电压范围：</strong>1–36 V',
+      'pe-spec3': '<strong>最大输出功率：</strong>50 W',
+      'pe-spec4': '<strong>开关频率：</strong>50 kHz',
+      'pe-spec5': '<strong>最大电感电流：</strong>5 A',
+      'pe-spec6': '<strong>最低效率：</strong>≥ 75%',
+      'pe-spec7': '<strong>输出电压纹波：</strong>≤ 0.5% U<sub>E</sub>',
+      'pe-s3-h': '仿真与设计',
+      'pe-s3': '在 MATLAB/Simulink (Simscape) 中对完整变换器建模——包括功率级、测量电路和调制器，并使用真实元件参数。关键参数（最小电感值、输入/输出电容、纹波电流、带低通滤波的分压电路）通过 MATLAB 脚本解析计算，并与仿真结果相互验证。此外还计算了 MOSFET 损耗并建立了简化热模型。',
+      'pe-s4-h': '原理图与 PCB（Altium Designer）',
+      'pe-s4': '在 Altium Designer 中完成完整原理图：功率级、电流测量（ACS722，25 kHz 低通）、带分压与 10 kHz 低通和电压跟随器（MCP6022）的电压测量、电位器/按键人机接口、状态 LED 与测量点。多层板布局采用低电感换流回路、80 mil 功率走线、功率/信号地分离（GND/SGND）与 EMC 边缘，并通过设计规则检查（DRC）验证。',
+      'pe-s5-h': '装配与调试',
+      'pe-s5': '电路板手工焊接装配（SMD 与 THT），并按照系统化的上电调试协议完成调试：目视检查、电源轨（12 V / 3.3 V）、栅极驱动器与功率级——包括对虚焊、错贴元件等典型问题的故障排查。',
+      'pe-s6-h': '数字控制',
+      'pe-s6': '在 STM32（NUCLEO-G431KB）上实现级联控制：快速电流环（PI，按幅值最优整定）带抗饱和与前馈，外环电压环（PI，按对称最优整定）的输出限幅电流给定。基于 Stateflow 的顺序控制实现待机/正常运行/故障三种状态——过流（> 10 A）时进入故障状态并封锁栅极驱动器。C++ 代码由 Embedded Coder 自动生成并烧录至微控制器，使用 LabMCT 进行监控。',
+      'pe-g1': '电路原理图',
+      'pe-g2': '电气原理图',
+      'pe-g3': 'PCB 布局',
+      'pe-g4': '硬件原型',
+      'pe-g5': '数字控制系统'
+    }
+  };
+
+  function apply(lang) {
+    var t = T[lang] || T.de;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (t[k]) el.innerHTML = t[k];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-alt');
+      if (t[k]) el.setAttribute('alt', t[k]);
+    });
+    document.title = t['pe-title'] + ' – Ben He';
+    document.querySelectorAll('.lang-option').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  var lang = 'de';
+  try { lang = localStorage.getItem('lang') || 'de'; } catch (e) {}
+  if (!T[lang]) lang = 'de';
+
+  document.querySelectorAll('.lang-option').forEach(function (b) {
+    b.addEventListener('click', function () {
+      try { localStorage.setItem('lang', b.dataset.lang); } catch (e) {}
+      apply(b.dataset.lang);
+    });
+  });
+
+  apply(lang);
+})();
+</script>
+</body>
+</html>
