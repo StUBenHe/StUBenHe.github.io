@@ -6,5 +6,8 @@ foto.jpg
 lebenslauf_mit_foto.tex
 .agents/
 
+# Office lock files (created while a file is open in Word/PowerPoint)
+~$*
+
 # Keep old unoptimized image locally, deploy compressed versions
 6572d07c20fc7606f30b6678b430be40.jpg
