@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben He – Praktikum Informationstechnik 1: Autonomes Fahren</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ─── Project detail page (pit-autopilot.html) ─── */
+  .pe-page {
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  }
+  .pe-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+  }
+  .pe-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .pe-header h1 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    color: var(--color-text);
+    line-height: 1.3;
+    margin-bottom: var(--space-sm);
+  }
+  .pe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: 0.92rem;
+  }
+  .pe-section {
+    margin-top: var(--space-2xl);
+  }
+  .pe-section h2 {
+    font-size: 1.35rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+  .pe-section p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+  .pe-specs {
+    list-style: disc;
+    padding-left: 1.25rem;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+  }
+  .pe-specs li {
+    margin-bottom: 0.35rem;
+  }
+  .pe-figure {
+    margin: var(--space-lg) 0 0;
+    max-width: 760px;
+  }
+  .pe-figure img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+  .pe-figure figcaption {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-top: var(--space-sm);
+  }
+  .pe-footer {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* ─── Mind map (module overview) ─── */
+  .mm {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 680px;
+    margin: 0 auto;
+    font-family: inherit;
+  }
+  .mm-line {
+    stroke: var(--color-text-muted);
+    stroke-width: 1.2px;
+    fill: none;
+  }
+  .mm-root rect {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+  }
+  .mm-root .mm-t {
+    fill: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .mm-root .mm-s {
+    fill: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+  }
+  .mm-cat rect {
+    fill: var(--color-bg-alt);
+    stroke: var(--color-border);
+  }
+  .mm-cat-title {
+    fill: var(--color-text);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .mm-node rect {
+    fill: var(--color-surface);
+    stroke: var(--color-border);
+  }
+  .mm-node .mm-t {
+    fill: var(--color-text);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .mm-node .mm-s {
+    fill: var(--color-text-secondary);
+    font-size: 11px;
+  }
+  .mm-mine rect {
+    fill: var(--color-primary-light);
+    stroke: var(--color-primary);
+  }
+  .mm-mine .mm-t {
+    fill: var(--color-primary);
+  }
+  .mm-mine .mm-s {
+    fill: var(--color-primary);
+    opacity: 0.85;
+  }
+  .mm-legend {
+    fill: var(--color-text-secondary);
+    font-size: 12px;
+  }
+</style>
+<script>
+  /* Apply saved theme before paint to avoid flash */
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<main class="container pe-page">
+
+  <header class="pe-topbar">
+    <a class="pe-back" href="index.html">← <span data-i18n="pit-back">Zurück zur Website</span></a>
+    <div class="lang-switcher" role="group" aria-label="Sprache wählen">
+      <button type="button" class="lang-option" data-lang="de">DE</button>
+      <button type="button" class="lang-option" data-lang="en">EN</button>
+      <button type="button" class="lang-option" data-lang="zh">中文</button>
+    </div>
+  </header>
+
+  <header class="pe-header">
+    <h1 data-i18n="pit-title">Praktikum Informationstechnik 1 – Autonomes Fahren</h1>
+    <div class="pe-meta">
+      <span class="exp-date">04/2023 – 07/2023</span>
+      <span>KIT – Praktikum Informationstechnik 1 · Gruppe 066</span>
+    </div>
+    <div class="exp-tags">
+      <span class="tag">C++</span>
+      <span class="tag">Embedded</span>
+      <span class="tag">Tiva C</span>
+      <span class="tag">HC-SR04</span>
+      <span class="tag">Git</span>
+    </div>
+  </header>
+
+  <section class="pe-section">
+    <h2 data-i18n="pit-s1-h">Überblick</h2>
+    <p data-i18n="pit-s1">Im Praktikum Informationstechnik 1 (PIT, SS2023) entwickelte die Gruppe 066 ein autonomes Modellfahrzeug auf Basis des TI-Mikrocontrollers Tiva C (TM4C123GH6PM). Sämtliche Peripherie-Treiber wurden als modulare C++-Klassenbibliothek (Common_Classes) selbst implementiert — jede Klasse mit eigenem Testprogramm. Meine Aufgabe umfasste die Ultraschall-Distanzmessung (HC-SR04) und die Lenkungssteuerung über den Joystick.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pit-map-h">Modulübersicht</h2>
+    <p data-i18n="pit-map-intro">Die System-Klasse bildet das Fundament, auf dem die Treiber-, Funktions- und Steuerungsklassen aufbauen. Die mit ★ markierten Module habe ich selbst implementiert.</p>
+    <figure class="pe-figure">
+      <svg class="mm" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Modulübersicht des Projekts">
+        <!-- Root: System -->
+        <g class="mm-root">
+          <rect x="230" y="24" width="220" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="340" y="42" text-anchor="middle" dominant-baseline="central">System</text>
+          <text class="mm-s" x="340" y="60" text-anchor="middle" dominant-baseline="central">TM4C123GH6PM · 40 MHz</text>
+        </g>
+        <!-- Connectors -->
+        <path class="mm-line" d="M340 80 L340 108"/>
+        <path class="mm-line" d="M135 108 L545 108"/>
+        <path class="mm-line" d="M135 108 L135 136"/>
+        <path class="mm-line" d="M340 108 L340 136"/>
+        <path class="mm-line" d="M545 108 L545 136"/>
+        <!-- Container 1: Treiberklassen -->
+        <g class="mm-cat">
+          <rect x="40" y="136" width="190" height="424" rx="12" stroke-width="1"/>
+          <text class="mm-cat-title" x="60" y="160" dominant-baseline="central" data-i18n="pit-map-cat1">Treiberklassen</text>
+        </g>
+        <g class="mm-node">
+          <rect x="60" y="176" width="150" height="44" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="135" y="198" text-anchor="middle" dominant-baseline="central">GPIO</text>
+        </g>
+        <g class="mm-node">
+          <rect x="60" y="240" width="150" height="44" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="135" y="262" text-anchor="middle" dominant-baseline="central">ADC</text>
+        </g>
+        <g class="mm-node">
+          <rect x="60" y="304" width="150" height="44" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="135" y="326" text-anchor="middle" dominant-baseline="central">Timer</text>
+        </g>
+        <g class="mm-node">
+          <rect x="60" y="368" width="150" height="44" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="135" y="390" text-anchor="middle" dominant-baseline="central">UART</text>
+        </g>
+        <g class="mm-node">
+          <rect x="60" y="432" width="150" height="44" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="135" y="454" text-anchor="middle" dominant-baseline="central">PWM</text>
+        </g>
+        <g class="mm-node">
+          <rect x="60" y="496" width="150" height="44" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="135" y="518" text-anchor="middle" dominant-baseline="central">Compare</text>
+        </g>
+        <!-- Container 2: Funktionsklassen -->
+        <g class="mm-cat">
+          <rect x="245" y="136" width="190" height="344" rx="12" stroke-width="1"/>
+          <text class="mm-cat-title" x="265" y="160" dominant-baseline="central" data-i18n="pit-map-cat2">Funktionsklassen</text>
+        </g>
+        <g class="mm-node mm-mine">
+          <rect x="265" y="176" width="150" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="340" y="194" text-anchor="middle" dominant-baseline="central">★ Distance</text>
+          <text class="mm-s" x="340" y="212" text-anchor="middle" dominant-baseline="central">HC-SR04</text>
+        </g>
+        <g class="mm-node">
+          <rect x="265" y="252" width="150" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="340" y="270" text-anchor="middle" dominant-baseline="central">MPU6050</text>
+          <text class="mm-s" x="340" y="288" text-anchor="middle" dominant-baseline="central">IMU</text>
+        </g>
+        <g class="mm-node">
+          <rect x="265" y="328" width="150" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="340" y="346" text-anchor="middle" dominant-baseline="central">Remote</text>
+          <text class="mm-s" x="340" y="364" text-anchor="middle" dominant-baseline="central">remote control</text>
+        </g>
+        <g class="mm-node">
+          <rect x="265" y="404" width="150" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="340" y="422" text-anchor="middle" dominant-baseline="central">Display</text>
+          <text class="mm-s" x="340" y="440" text-anchor="middle" dominant-baseline="central">LCD</text>
+        </g>
+        <!-- Container 3: Kontrollklassen -->
+        <g class="mm-cat">
+          <rect x="450" y="136" width="190" height="268" rx="12" stroke-width="1"/>
+          <text class="mm-cat-title" x="470" y="160" dominant-baseline="central" data-i18n="pit-map-cat3">Kontrollklassen</text>
+        </g>
+        <g class="mm-node mm-mine">
+          <rect x="470" y="176" width="150" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="545" y="194" text-anchor="middle" dominant-baseline="central">★ Steering</text>
+          <text class="mm-s" x="545" y="212" text-anchor="middle" dominant-baseline="central">joystick → diff</text>
+        </g>
+        <g class="mm-node">
+          <rect x="470" y="252" width="150" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="545" y="270" text-anchor="middle" dominant-baseline="central">Magni</text>
+          <text class="mm-s" x="545" y="288" text-anchor="middle" dominant-baseline="central">vehicle control</text>
+        </g>
+        <g class="mm-node">
+          <rect x="470" y="328" width="150" height="56" rx="8" stroke-width="1"/>
+          <text class="mm-t" x="545" y="346" text-anchor="middle" dominant-baseline="central">Battery</text>
+          <text class="mm-s" x="545" y="364" text-anchor="middle" dominant-baseline="central">in Magni · ADC</text>
+        </g>
+        <!-- Legend -->
+        <text class="mm-legend" x="340" y="596" text-anchor="middle" dominant-baseline="central" data-i18n="pit-map-legend">★ = meine Module</text>
+      </svg>
+      <figcaption data-i18n="pit-map-cap">Modularer Klassenaufbau des Projekts — ★ markiert meine Module.</figcaption>
+    </figure>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pit-s3-h">System &amp; Plattform</h2>
+    <p data-i18n="pit-s3">Die System-Klasse bildet die gemeinsame Basis aller Module: Systemtakt (40 MHz), Fehlerbehandlung über ErrorCodes sowie Verzögerungsfunktionen. Darauf aufbauend stellen GPIO, ADC, Timer und UART die Hardware-Abstraktion bereit, auf der die funktionalen Klassen Distance und Steering aufsetzen. Die Magni-Klasse integriert die Module zur Fahrzeugsteuerung — inklusive Batterieüberwachung über den ADC.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pit-s4-h">Mein Modul: Distance (HC-SR04)</h2>
+    <p data-i18n="pit-s4">Der HC-SR04 misst Entfernungen von 2–400 cm über die Laufzeit eines Ultraschallpulses (Trigger/Echo). Die Echo-Zeit wird über einen Wide-Timer im Edge-Capture-Modus erfasst; die Entfernung ergibt sich aus d = t · v / 2 mit v ≈ 343 m/s. Über konfigurierbare Port-/Pin-Zuordnungen (Config.h) unterstützt die Klasse bis zu fünf Sensoren gleichzeitig.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pit-s5-h">Mein Modul: Steering (Joystick)</h2>
+    <p data-i18n="pit-s5">Der Joystick liefert zwei analoge Achsen (X/Y), die über zwei ADC-Kanäle als Spannung eingelesen und auf den Wertebereich [−1, 1] normalisiert werden (Mittelstellung 1,65 V). Aus den normalisierten Werten berechnet die Klasse die Differenzialgeschwindigkeiten der beiden Antriebsräder: links = y + x, rechts = y − x.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pit-s6-h">Team &amp; Lernziele</h2>
+    <p data-i18n="pit-s6">Die übrigen Module (Remote, MPU6050, Display, Compare u. a.) stammen von den Teammitgliedern; integriert und getestet wurde im gemeinsamen Git-Repository der Gruppe 066 mit einem Testprogramm je Klasse. Lernziele: eingebettete C++-Entwicklung, hardwarenahe Treiberprogrammierung (Timer, Interrupts, ADC), Debugging auf Zielhardware sowie teamorientierte Softwareentwicklung.</p>
+  </section>
+
+  <footer class="pe-footer">
+    <a class="pe-back" href="index.html">← <span data-i18n="pit-back">Zurück zur Website</span></a>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var T = {
+    de: {
+      'pit-back': 'Zurück zur Website',
+      'pit-title': 'Praktikum Informationstechnik 1 – Autonomes Fahren',
+      'pit-s1-h': 'Überblick',
+      'pit-s1': 'Im Praktikum Informationstechnik 1 (PIT, SS2023) entwickelte die Gruppe 066 ein autonomes Modellfahrzeug auf Basis des TI-Mikrocontrollers Tiva C (TM4C123GH6PM). Sämtliche Peripherie-Treiber wurden als modulare C++-Klassenbibliothek (Common_Classes) selbst implementiert — jede Klasse mit eigenem Testprogramm. Meine Aufgabe umfasste die Ultraschall-Distanzmessung (HC-SR04) und die Lenkungssteuerung über den Joystick.',
+      'pit-map-h': 'Modulübersicht',
+      'pit-map-intro': 'Die System-Klasse bildet das Fundament, auf dem die Treiber-, Funktions- und Steuerungsklassen aufbauen. Die mit ★ markierten Module habe ich selbst implementiert.',
+      'pit-map-cat1': 'Treiberklassen',
+      'pit-map-cat2': 'Funktionsklassen',
+      'pit-map-cat3': 'Kontrollklassen',
+      'pit-map-legend': '★ = meine Module',
+      'pit-map-cap': 'Modularer Klassenaufbau des Projekts — ★ markiert meine Module.',
+      'pit-s3-h': 'System & Plattform',
+      'pit-s3': 'Die System-Klasse bildet die gemeinsame Basis aller Module: Systemtakt (40 MHz), Fehlerbehandlung über ErrorCodes sowie Verzögerungsfunktionen. Darauf aufbauend stellen GPIO, ADC, Timer und UART die Hardware-Abstraktion bereit, auf der die funktionalen Klassen Distance und Steering aufsetzen. Die Magni-Klasse integriert die Module zur Fahrzeugsteuerung — inklusive Batterieüberwachung über den ADC.',
+      'pit-s4-h': 'Mein Modul: Distance (HC-SR04)',
+      'pit-s4': 'Der HC-SR04 misst Entfernungen von 2–400 cm über die Laufzeit eines Ultraschallpulses (Trigger/Echo). Die Echo-Zeit wird über einen Wide-Timer im Edge-Capture-Modus erfasst; die Entfernung ergibt sich aus d = t · v / 2 mit v ≈ 343 m/s. Über konfigurierbare Port-/Pin-Zuordnungen (Config.h) unterstützt die Klasse bis zu fünf Sensoren gleichzeitig.',
+      'pit-s5-h': 'Mein Modul: Steering (Joystick)',
+      'pit-s5': 'Der Joystick liefert zwei analoge Achsen (X/Y), die über zwei ADC-Kanäle als Spannung eingelesen und auf den Wertebereich [−1, 1] normalisiert werden (Mittelstellung 1,65 V). Aus den normalisierten Werten berechnet die Klasse die Differenzialgeschwindigkeiten der beiden Antriebsräder: links = y + x, rechts = y − x.',
+      'pit-s6-h': 'Team & Lernziele',
+      'pit-s6': 'Die übrigen Module (Remote, MPU6050, Display, Compare u. a.) stammen von den Teammitgliedern; integriert und getestet wurde im gemeinsamen Git-Repository der Gruppe 066 mit einem Testprogramm je Klasse. Lernziele: eingebettete C++-Entwicklung, hardwarenahe Treiberprogrammierung (Timer, Interrupts, ADC), Debugging auf Zielhardware sowie teamorientierte Softwareentwicklung.'
+    },
+    en: {
+      'pit-back': 'Back to website',
+      'pit-title': 'Lab Course Information Technology 1 – Autonomous Driving',
+      'pit-s1-h': 'Overview',
+      'pit-s1': 'In the lab course Information Technology 1 (PIT, SS2023), group 066 developed an autonomous model vehicle based on the TI Tiva C microcontroller (TM4C123GH6PM). All peripheral drivers were implemented from scratch as a modular C++ class library (Common_Classes) — each class with its own test program. My responsibility covered ultrasonic distance measurement (HC-SR04) and joystick-based steering control.',
+      'pit-map-h': 'Module Overview',
+      'pit-map-intro': 'The System class forms the foundation on which the driver, functional and control classes are built. The modules marked with ★ were implemented by me.',
+      'pit-map-cat1': 'Driver Classes',
+      'pit-map-cat2': 'Functional Classes',
+      'pit-map-cat3': 'Control Classes',
+      'pit-map-legend': '★ = my modules',
+      'pit-map-cap': 'Modular class architecture of the project — ★ marks my modules.',
+      'pit-s3-h': 'System & Platform',
+      'pit-s3': 'The System class forms the common base of all modules: system clock (40 MHz), error handling via ErrorCodes, and delay functions. On top of that, GPIO, ADC, Timer and UART provide the hardware abstraction layer for the functional classes Distance and Steering. The Magni class integrates the modules for vehicle control — including battery monitoring via the ADC.',
+      'pit-s4-h': 'My module: Distance (HC-SR04)',
+      'pit-s4': 'The HC-SR04 measures distances of 2–400 cm via the time of flight of an ultrasonic pulse (trigger/echo). The echo time is captured with a wide timer in edge-capture mode; the distance follows from d = t · v / 2 with v ≈ 343 m/s. Via configurable port/pin mappings (Config.h) the class supports up to five sensors simultaneously.',
+      'pit-s5-h': 'My module: Steering (Joystick)',
+      'pit-s5': 'The joystick provides two analog axes (X/Y), read as voltages via two ADC channels and normalized to the range [−1, 1] (center position 1.65 V). From the normalized values the class computes the differential speeds of the two drive wheels: left = y + x, right = y − x.',
+      'pit-s6-h': 'Team & Learning Goals',
+      'pit-s6': 'The remaining modules (Remote, MPU6050, Display, Compare, etc.) were contributed by team members; integration and testing took place in the shared Git repository of group 066 with one test program per class. Learning goals: embedded C++ development, low-level driver programming (timers, interrupts, ADC), debugging on target hardware, and team-oriented software development.'
+    },
+    zh: {
+      'pit-back': '返回网站',
+      'pit-title': '信息技术 1 实验课 – 自动驾驶',
+      'pit-s1-h': '项目概览',
+      'pit-s1': '在信息技术 1 实验课（PIT，2023 夏季学期）中，第 066 小组基于 TI Tiva C 微控制器（TM4C123GH6PM）开发了一辆自动驾驶模型车。所有外设驱动均以模块化 C++ 类库（Common_Classes）的形式自主实现——每个类配有独立测试程序。我负责超声波测距（HC-SR04）与摇杆转向控制。',
+      'pit-map-h': '模块总览',
+      'pit-map-intro': 'System 类是全部模块的基础，驱动类、功能类与控制类构建于其上。标有 ★ 的模块由我独立实现。',
+      'pit-map-cat1': '驱动类',
+      'pit-map-cat2': '功能类',
+      'pit-map-cat3': '控制类',
+      'pit-map-legend': '★ = 我负责的模块',
+      'pit-map-cap': '项目模块化类结构——★ 标记我负责的模块。',
+      'pit-s3-h': '系统与平台',
+      'pit-s3': 'System 类是全部模块的公共基础：系统时钟（40 MHz）、基于 ErrorCodes 的错误处理以及延时函数。在此基础上，GPIO、ADC、Timer 与 UART 提供了硬件抽象层，功能类 Distance 与 Steering 构建于其上。Magni 类将各模块整合为整车控制——包括通过 ADC 进行的电池监测。',
+      'pit-s4-h': '我的模块：Distance（HC-SR04）',
+      'pit-s4': 'HC-SR04 通过超声波脉冲的飞行时间（触发/回波）测量 2–400 cm 的距离。回波时间由宽定时器以边沿捕获模式记录；距离由 d = t·v/2 计算，其中 v ≈ 343 m/s。通过可配置的端口/引脚映射（Config.h），该类可同时支持最多五个传感器。',
+      'pit-s5-h': '我的模块：Steering（摇杆）',
+      'pit-s5': '摇杆提供 X/Y 两个模拟轴，经两路 ADC 以电压形式读取，并归一化到 [−1, 1] 范围（中位 1.65 V）。该类根据归一化后的数值计算两个驱动轮的差速：左轮 = y + x，右轮 = y − x。',
+      'pit-s6-h': '团队与学习目标',
+      'pit-s6': '其余模块（Remote、MPU6050、Display、Compare 等）由组员完成；集成与测试在小组 066 的共享 Git 仓库中进行，每个类配有一个测试程序。学习目标：嵌入式 C++ 开发、底层驱动编程（定时器、中断、ADC）、目标硬件调试以及团队协作式软件开发。'
+    }
+  };
+
+  function apply(lang) {
+    var t = T[lang] || T.de;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (t[k]) el.innerHTML = t[k];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-alt');
+      if (t[k]) el.setAttribute('alt', t[k]);
+    });
+    document.title = t['pit-title'] + ' – Ben He';
+    document.querySelectorAll('.lang-option').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  var lang = 'de';
+  try { lang = localStorage.getItem('lang') || 'de'; } catch (e) {}
+  if (!T[lang]) lang = 'de';
+
+  document.querySelectorAll('.lang-option').forEach(function (b) {
+    b.addEventListener('click', function () {
+      try { localStorage.setItem('lang', b.dataset.lang); } catch (e) {}
+      apply(b.dataset.lang);
+    });
+  });
+
+  apply(lang);
+})();
+</script>
+</body>
+</html>
