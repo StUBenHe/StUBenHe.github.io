@@ -677,6 +677,7 @@
   }
 
   // ─── Visitor Counter (privacy-friendly) ──────────────────
+  const VISIT_LABELS = { de: 'Besuche: ', en: 'Visits: ', zh: '访问量: ' };
   function initVisitorCounter() {
     const storageKey = 'benhe_visits';
     const now = Date.now();
@@ -698,7 +699,7 @@
     if (footer && data.count > 0) {
       const span = document.createElement('span');
       span.style.cssText = 'font-size:0.85rem;color:var(--color-text-muted);';
-      span.textContent = 'Besuche: ' + data.count;
+      span.textContent = (VISIT_LABELS[currentLang] || VISIT_LABELS.de) + data.count;
       span.id = 'visitorCount';
       const btt = footer.querySelector('.back-to-top');
       if (btt) {
