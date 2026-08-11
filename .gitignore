@@ -1,5 +1,14 @@
 # Sensitive personal documents
 *.pdf
+
+# Internship report (confidential — full report is not published)
+praktikum/
+
+# Old typo folder (replaced by praktikum/)
+prackti/
+
+# Local preview screenshots
+.shots/
 steurenummer.jpeg
 foto.jpg
 中文简历.txt

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Praktikum Ben He – Embedded Systems in der Fahrzeug-Elektronik: Schaltungsanalyse, Hardware-Test und Fahrzeugintegration.">
+<title>Ben He – Praktikum</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ─── Project detail page (praktikum.html) ─── */
+  .pe-page {
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  }
+  .pe-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+  }
+  .pe-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .pe-header h1 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    color: var(--color-text);
+    line-height: 1.3;
+    margin-bottom: var(--space-sm);
+  }
+  .pe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: 0.92rem;
+  }
+  .pe-section {
+    margin-top: var(--space-2xl);
+  }
+  .pe-section h2 {
+    font-size: 1.35rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+  .pe-section p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+  .pe-section ul {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0 0 var(--space-md) var(--space-md);
+    padding-left: var(--space-md);
+    list-style: disc;
+  }
+  .pe-section li {
+    margin-bottom: 0.4rem;
+  }
+  .pe-section code {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.9em;
+  }
+  .pe-footer {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+</style>
+<script>
+  /* Apply saved theme before paint to avoid flash */
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<main class="container pe-page">
+
+  <header class="pe-topbar">
+    <a class="pe-back" href="index.html">← <span data-i18n="pk-back">Zurück zur Website</span></a>
+    <div class="lang-switcher" role="group" aria-label="Sprache wählen">
+      <button type="button" class="lang-option" data-lang="de">DE</button>
+      <button type="button" class="lang-option" data-lang="en">EN</button>
+      <button type="button" class="lang-option" data-lang="zh">中文</button>
+    </div>
+  </header>
+
+  <header class="pe-header">
+    <h1 data-i18n="pk-title">Praktikum: Embedded Systems in der Fahrzeug-Elektronik</h1>
+    <div class="pe-meta">
+      <span class="exp-date">12/2025 – 02/2026</span>
+      <span data-i18n="pk-company">Dynavin – F&amp;E-Abteilung (Karlsruhe)</span>
+    </div>
+    <div class="exp-tags">
+      <span class="tag">STM32</span>
+      <span class="tag">CAN-Bus</span>
+      <span class="tag">Embedded Systems</span>
+      <span class="tag">Automotive</span>
+    </div>
+  </header>
+
+  <section class="pe-section">
+    <h2 data-i18n="pk-s1-h">Überblick</h2>
+    <p data-i18n="pk-s1">Zwölfwöchiges Pflichtpraktikum (01.12.2025 – 28.02.2026) in der Forschungs- und Entwicklungsabteilung von <strong>Dynavin</strong>, einem in der Region Karlsruhe ansässigen Unternehmen, das Infotainment- und Navigationssysteme für Fahrzeuge entwickelt und herstellt. Die Abteilung ist verantwortlich für die Hard- und Software-Entwicklung der Systeme, die Fahrzeugintegration sowie die Qualitätssicherung.</p>
+    <p data-i18n="pk-s1b">Meine Arbeit umfasste die Analyse elektronischer Schaltungen, die Hardware-Montage und -Reparatur, die Prüfung von Steuergeräten in der Testwerkstatt sowie die Unterstützung bei der Integration der Systeme in Fahrzeuge.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pk-s2-h">Projektüberblick</h2>
+    <p data-i18n="pk-s2">Ein Schwerpunkt meines Praktikums war ein <strong>CAN-Bus-Adaptermodul</strong> für die Fahrzeug-Nachrüstung: Es übersetzt fahrzeugseitige CAN-Bus-Signale in Steuersignale, die von Nachrüst-Infotainmentgeräten verarbeitet werden können, und stellt dabei wichtige Fahrzeugfunktionen (z.&nbsp;B. Lenkradtasten, Zündungsstatus, Rückfahrsignal) sicher.</p>
+    <p data-i18n="pk-s2b">Ich habe den Aufbau der Schaltung analysiert — vom 32-Bit-Mikrocontroller über die CAN-Schnittstelle und die Spannungsversorgung bis zu den Ein-/Ausgangsstufen — und die Zusammenwirkung der Komponenten im Gesamtsystem verstanden.</p>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pk-s3-h">Aufgaben &amp; Tätigkeiten</h2>
+    <ul>
+      <li data-i18n="pk-s3-1"><strong>Schaltungsanalyse:</strong> Analyse von Schaltplänen und Platinenlayouts; Verständnis der Funktionsblöcke (Mikrocontroller, Kommunikationsschnittstellen, Stromversorgung, Audio-Pfad, I/O-Schaltungen).</li>
+      <li data-i18n="pk-s3-2"><strong>Hardware &amp; Reparatur:</strong> Montage von Baugruppen, Austausch von Bauteilen und systematische Fehlersuche (Sichtprüfung, Spannungs- und Signalmessung).</li>
+      <li data-i18n="pk-s3-3"><strong>Prüfwerkstatt:</strong> Funktionstests von Steuergeräten und Navigationssystemen; Prüfung der Kommunikation zwischen Headunit und Fahrzeug-Bussystem.</li>
+      <li data-i18n="pk-s3-4"><strong>Fahrzeugintegration:</strong> Unterstützung bei Installation und Diagnose von Nachrüstsystemen in Kundenfahrzeugen (Bordnetz, Zündungslogik, Bussysteme).</li>
+      <li data-i18n="pk-s3-5"><strong>Software-Seite:</strong> Einblick in Firmware- und Systemsoftware Android-basierter Geräte (Systemimage übertragen, Software flashen, Debug-Ausgaben auswerten).</li>
+    </ul>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pk-s4-h">Erlernte Fähigkeiten</h2>
+    <ul>
+      <li data-i18n="pk-s4-1">Embedded Systems: 32-Bit-Mikrocontroller (ARM Cortex-M, STM32-Familie), Peripherie und Firmware-Grundlagen.</li>
+      <li data-i18n="pk-s4-2">Fahrzeugkommunikation: CAN-Bus-Protokoll, Transceiver-Schaltungen und Bussysteme im Fahrzeug.</li>
+      <li data-i18n="pk-s4-3">Analog- und Leistungselektronik: Spannungsversorgungen, Filter, Audio-Verstärkung und ADC/DAC-Signalpfade.</li>
+      <li data-i18n="pk-s4-4">Messtechnik &amp; Werkzeuge: Oszilloskop, Multimeter, Labornetzteil, ST-Link/JTAG-Debugging, Löttechnik.</li>
+      <li data-i18n="pk-s4-5">Systematische Fehlersuche und Reparatur elektronischer Steuergeräte.</li>
+    </ul>
+  </section>
+
+  <section class="pe-section">
+    <h2 data-i18n="pk-s5-h">Fazit</h2>
+    <p data-i18n="pk-s5">Das Praktikum gab mir fundierte Einblicke in die Entwicklung, Fertigung und Instandsetzung moderner Fahrzeug-Elektronik — von der Schaltplananalyse über die CAN-Bus-Kommunikation bis zur praktischen Fahrzeugintegration. Als Student aus China war es zugleich meine erste längere Zusammenarbeit mit deutschen Kollegen; die Erfahrung hat mir gezeigt, wie wichtig Kommunikation und Teamarbeit am Arbeitsplatz sind. Der breite Einsatz eingebetteter Systeme in der Industrie hat mich motiviert, mich in meinem weiteren Studium intensiver mit Embedded Systems zu beschäftigen.</p>
+  </section>
+
+  <footer class="pe-footer">
+    <a class="pe-back" href="index.html">← <span data-i18n="pk-back">Zurück zur Website</span></a>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var T = {
+    de: {
+      'pk-back': 'Zurück zur Website',
+      'pk-title': 'Praktikum: Embedded Systems in der Fahrzeug-Elektronik',
+      'pk-company': 'Dynavin – F&E-Abteilung (Karlsruhe)',
+      'pk-s1-h': 'Überblick',
+      'pk-s1': 'Zwölfwöchiges Pflichtpraktikum (01.12.2025 – 28.02.2026) in der Forschungs- und Entwicklungsabteilung von <strong>Dynavin</strong>, einem in der Region Karlsruhe ansässigen Unternehmen, das Infotainment- und Navigationssysteme für Fahrzeuge entwickelt und herstellt. Die Abteilung ist verantwortlich für die Hard- und Software-Entwicklung der Systeme, die Fahrzeugintegration sowie die Qualitätssicherung.',
+      'pk-s1b': 'Meine Arbeit umfasste die Analyse elektronischer Schaltungen, die Hardware-Montage und -Reparatur, die Prüfung von Steuergeräten in der Testwerkstatt sowie die Unterstützung bei der Integration der Systeme in Fahrzeuge.',
+      'pk-s2-h': 'Projektüberblick',
+      'pk-s2': 'Ein Schwerpunkt meines Praktikums war ein <strong>CAN-Bus-Adaptermodul</strong> für die Fahrzeug-Nachrüstung: Es übersetzt fahrzeugseitige CAN-Bus-Signale in Steuersignale, die von Nachrüst-Infotainmentgeräten verarbeitet werden können, und stellt dabei wichtige Fahrzeugfunktionen (z. B. Lenkradtasten, Zündungsstatus, Rückfahrsignal) sicher.',
+      'pk-s2b': 'Ich habe den Aufbau der Schaltung analysiert — vom 32-Bit-Mikrocontroller über die CAN-Schnittstelle und die Spannungsversorgung bis zu den Ein-/Ausgangsstufen — und die Zusammenwirkung der Komponenten im Gesamtsystem verstanden.',
+      'pk-s3-h': 'Aufgaben & Tätigkeiten',
+      'pk-s3-1': '<strong>Schaltungsanalyse:</strong> Analyse von Schaltplänen und Platinenlayouts; Verständnis der Funktionsblöcke (Mikrocontroller, Kommunikationsschnittstellen, Stromversorgung, Audio-Pfad, I/O-Schaltungen).',
+      'pk-s3-2': '<strong>Hardware & Reparatur:</strong> Montage von Baugruppen, Austausch von Bauteilen und systematische Fehlersuche (Sichtprüfung, Spannungs- und Signalmessung).',
+      'pk-s3-3': '<strong>Prüfwerkstatt:</strong> Funktionstests von Steuergeräten und Navigationssystemen; Prüfung der Kommunikation zwischen Headunit und Fahrzeug-Bussystem.',
+      'pk-s3-4': '<strong>Fahrzeugintegration:</strong> Unterstützung bei Installation und Diagnose von Nachrüstsystemen in Kundenfahrzeugen (Bordnetz, Zündungslogik, Bussysteme).',
+      'pk-s3-5': '<strong>Software-Seite:</strong> Einblick in Firmware- und Systemsoftware Android-basierter Geräte (Systemimage übertragen, Software flashen, Debug-Ausgaben auswerten).',
+      'pk-s4-h': 'Erlernte Fähigkeiten',
+      'pk-s4-1': 'Embedded Systems: 32-Bit-Mikrocontroller (ARM Cortex-M, STM32-Familie), Peripherie und Firmware-Grundlagen.',
+      'pk-s4-2': 'Fahrzeugkommunikation: CAN-Bus-Protokoll, Transceiver-Schaltungen und Bussysteme im Fahrzeug.',
+      'pk-s4-3': 'Analog- und Leistungselektronik: Spannungsversorgungen, Filter, Audio-Verstärkung und ADC/DAC-Signalpfade.',
+      'pk-s4-4': 'Messtechnik & Werkzeuge: Oszilloskop, Multimeter, Labornetzteil, ST-Link/JTAG-Debugging, Löttechnik.',
+      'pk-s4-5': 'Systematische Fehlersuche und Reparatur elektronischer Steuergeräte.',
+      'pk-s5-h': 'Fazit',
+      'pk-s5': 'Das Praktikum gab mir fundierte Einblicke in die Entwicklung, Fertigung und Instandsetzung moderner Fahrzeug-Elektronik — von der Schaltplananalyse über die CAN-Bus-Kommunikation bis zur praktischen Fahrzeugintegration. Als Student aus China war es zugleich meine erste längere Zusammenarbeit mit deutschen Kollegen; die Erfahrung hat mir gezeigt, wie wichtig Kommunikation und Teamarbeit am Arbeitsplatz sind. Der breite Einsatz eingebetteter Systeme in der Industrie hat mich motiviert, mich in meinem weiteren Studium intensiver mit Embedded Systems zu beschäftigen.'
+    },
+    en: {
+      'pk-back': 'Back to website',
+      'pk-title': 'Internship: Embedded Systems in Automotive Electronics',
+      'pk-company': 'Dynavin – R&D Department (Karlsruhe)',
+      'pk-s1-h': 'Overview',
+      'pk-s1': 'Twelve-week mandatory internship (01.12.2025 – 28.02.2026) in the Research & Development department of <strong>Dynavin</strong>, a company based in the Karlsruhe region that develops and manufactures infotainment and navigation systems for vehicles. The department is responsible for hardware and software development, vehicle integration and quality assurance.',
+      'pk-s1b': 'My work covered the analysis of electronic circuits, hardware assembly and repair, testing of control units in the test workshop and support for integrating the systems into vehicles.',
+      'pk-s2-h': 'Project Overview',
+      'pk-s2': 'One focus of my internship was a <strong>CAN-bus adapter module</strong> for the vehicle aftermarket: it translates vehicle-side CAN-bus signals into control signals that aftermarket infotainment devices can process, while preserving important vehicle functions (e.g. steering-wheel buttons, ignition status, reverse signal).',
+      'pk-s2b': 'I analyzed the circuit design — from the 32-bit microcontroller through the CAN interface and power supply to the input/output stages — and understood how the components interact within the overall system.',
+      'pk-s3-h': 'Tasks & Responsibilities',
+      'pk-s3-1': '<strong>Circuit analysis:</strong> analysis of schematics and board layouts; understanding of the functional blocks (microcontroller, communication interfaces, power supply, audio path, I/O circuits).',
+      'pk-s3-2': '<strong>Hardware & repair:</strong> assembly of modules, replacement of components and systematic troubleshooting (visual inspection, voltage and signal measurement).',
+      'pk-s3-3': '<strong>Test workshop:</strong> functional testing of control units and navigation systems; verification of communication between head unit and vehicle bus system.',
+      'pk-s3-4': '<strong>Vehicle integration:</strong> support for installation and diagnosis of aftermarket systems in customer vehicles (on-board power, ignition logic, bus systems).',
+      'pk-s3-5': '<strong>Software side:</strong> insight into firmware and system software of Android-based devices (transferring system images, flashing software, evaluating debug output).',
+      'pk-s4-h': 'Skills Acquired',
+      'pk-s4-1': 'Embedded systems: 32-bit microcontrollers (ARM Cortex-M, STM32 family), peripherals and firmware fundamentals.',
+      'pk-s4-2': 'Vehicle communication: CAN-bus protocol, transceiver circuits and in-vehicle bus systems.',
+      'pk-s4-3': 'Analog and power electronics: power supplies, filters, audio amplification and ADC/DAC signal paths.',
+      'pk-s4-4': 'Measurement & tools: oscilloscope, multimeter, lab power supply, ST-Link/JTAG debugging, soldering.',
+      'pk-s4-5': 'Systematic troubleshooting and repair of electronic control units.',
+      'pk-s5-h': 'Conclusion',
+      'pk-s5': 'The internship gave me a solid insight into the development, manufacturing and repair of modern automotive electronics — from schematic analysis through CAN-bus communication to hands-on vehicle integration. As a student from China, it was also my first longer collaboration with German colleagues; the experience showed me how important communication and teamwork are in the workplace. The widespread use of embedded systems in industry motivated me to focus more deeply on embedded systems in my further studies.'
+    },
+    zh: {
+      'pk-back': '返回网站',
+      'pk-title': '实习：车载电子中的嵌入式系统',
+      'pk-company': 'Dynavin 公司 – 研发部（卡尔斯鲁厄）',
+      'pk-s1-h': '项目概览',
+      'pk-s1': '十二周必修实习（2025年12月1日 – 2026年2月28日），在 <strong>Dynavin</strong> 公司研发部完成。Dynavin 位于卡尔斯鲁厄地区，专注于车载信息娱乐与导航系统的研发与生产。该部门负责系统软硬件开发、整车集成与质量保证。',
+      'pk-s1b': '我的工作涵盖电子电路分析、硬件组装与维修、检测车间中的控制单元测试，以及协助系统在车辆中的集成。',
+      'pk-s2-h': '项目概述',
+      'pk-s2': '实习重点之一是用于车辆后装改装的 <strong>CAN 总线适配模块</strong>：它将车辆侧的 CAN 总线信号转换为后装信息娱乐设备可处理的控制信号，同时保障重要车辆功能（如方向盘按键、点火状态、倒车信号）。',
+      'pk-s2b': '我分析了电路设计——从 32 位微控制器、CAN 接口、电源系统到输入/输出级——并理解了各组件在整体系统中的协同工作原理。',
+      'pk-s3-h': '职责与工作内容',
+      'pk-s3-1': '<strong>电路分析：</strong>分析原理图与板卡布局；理解各功能模块（微控制器、通信接口、电源、音频通路、I/O 电路）。',
+      'pk-s3-2': '<strong>硬件与维修：</strong>组件装配、元器件更换与系统化排障（目视检查、电压与信号测量）。',
+      'pk-s3-3': '<strong>检测车间：</strong>控制单元与导航系统的功能测试；检查车机与车辆总线系统之间的通信。',
+      'pk-s3-4': '<strong>整车集成：</strong>协助客户车辆后装系统的安装与诊断（车载电源、点火逻辑、总线系统）。',
+      'pk-s3-5': '<strong>软件方面：</strong>了解基于 Android 设备的固件与系统软件（系统镜像传输、软件刷写、调试输出分析）。',
+      'pk-s4-h': '所学技能',
+      'pk-s4-1': '嵌入式系统：32 位微控制器（ARM Cortex-M、STM32 系列）、外设与固件基础。',
+      'pk-s4-2': '车载通信：CAN 总线协议、收发器电路与车内总线系统。',
+      'pk-s4-3': '模拟与功率电子：电源系统、滤波器、音频放大与 ADC/DAC 信号通路。',
+      'pk-s4-4': '测量与工具：示波器、万用表、实验室电源、ST-Link/JTAG 调试、焊接技术。',
+      'pk-s4-5': '电子控制单元的系统化排障与维修。',
+      'pk-s5-h': '总结',
+      'pk-s5': '这次实习让我深入了解了现代车载电子的研发、生产与维修——从原理图分析、CAN 总线通信到整车集成实践。作为来自中国的学生，这也是我第一次与德国同事长期共事；这段经历让我认识到职场沟通与团队合作的重要性。嵌入式系统在工业中的广泛应用也激励我在后续学习中更深入地研究嵌入式方向。'
+    }
+  };
+
+  function apply(lang) {
+    var t = T[lang] || T.de;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (t[k]) el.innerHTML = t[k];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-alt');
+      if (t[k]) el.setAttribute('alt', t[k]);
+    });
+    document.title = t['pk-title'] + ' – Ben He';
+    document.querySelectorAll('.lang-option').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  var lang = 'de';
+  try { lang = localStorage.getItem('lang') || 'de'; } catch (e) {}
+  if (!T[lang]) lang = 'de';
+
+  document.querySelectorAll('.lang-option').forEach(function (b) {
+    b.addEventListener('click', function () {
+      try { localStorage.setItem('lang', b.dataset.lang); } catch (e) {}
+      apply(b.dataset.lang);
+    });
+  });
+
+  apply(lang);
+})();
+</script>
+</body>
+</html>
